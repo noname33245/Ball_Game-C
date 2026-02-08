@@ -1,0 +1,7 @@
+﻿  ConsoleApplication1.cpp
+C:\Users\AC7014\OneDrive\Desktop\C++\Ball_Game\gl.h(147,32): warning C4244: “=”: 从“float”转换到“int”，可能丢失数据
+C:\Users\AC7014\OneDrive\Desktop\C++\Ball_Game\ConsoleApplication1.cpp(71,30): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+C:\Users\AC7014\OneDrive\Desktop\C++\Ball_Game\ConsoleApplication1.cpp(72,30): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+C:\Users\AC7014\OneDrive\Desktop\C++\Ball_Game\ConsoleApplication1.cpp(122,34): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+C:\Users\AC7014\OneDrive\Desktop\C++\Ball_Game\ConsoleApplication1.cpp(123,34): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+  ConsoleApplication1.vcxproj -> C:\Users\AC7014\OneDrive\Desktop\C++\Ball_Game\Debug\ConsoleApplication1.exe

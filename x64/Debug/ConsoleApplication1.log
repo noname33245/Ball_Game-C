@@ -1,0 +1,13 @@
+﻿  ConsoleApplication1.cpp
+C:\Users\AC7014\OneDrive\Desktop\C++\Ball_Game\gl.h(147,32): warning C4244: “=”: 从“float”转换到“int”，可能丢失数据
+C:\Users\AC7014\OneDrive\Desktop\C++\Ball_Game\ConsoleApplication1.cpp(70,30): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+C:\Users\AC7014\OneDrive\Desktop\C++\Ball_Game\ConsoleApplication1.cpp(71,30): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+C:\Users\AC7014\OneDrive\Desktop\C++\Ball_Game\ConsoleApplication1.cpp(121,34): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+C:\Users\AC7014\OneDrive\Desktop\C++\Ball_Game\ConsoleApplication1.cpp(122,34): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+C:\Users\AC7014\OneDrive\Desktop\C++\Ball_Game\ConsoleApplication1.cpp(150,30): error C2665: “settextstyle”: 4 个重载中没有一个可以转换所有参数类型
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\VS\include\easyx.h(249,6): message : 可能是“void settextstyle(int,int,LPCTSTR)”
+C:\Users\AC7014\OneDrive\Desktop\C++\Ball_Game\ConsoleApplication1.cpp(150,30): message : 尝试匹配参数列表“(int, int, const char [5])”时
+C:\Users\AC7014\OneDrive\Desktop\C++\Ball_Game\ConsoleApplication1.cpp(153,25): error C2665: “outtextxy”: 2 个重载中没有一个可以转换所有参数类型
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\VS\include\easyx.h(226,6): message : 可能是“void outtextxy(int,int,TCHAR)”
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\VS\include\easyx.h(225,6): message : 或    “void outtextxy(int,int,LPCTSTR)”
+C:\Users\AC7014\OneDrive\Desktop\C++\Ball_Game\ConsoleApplication1.cpp(153,25): message : 尝试匹配参数列表“(int, int, char [100])”时
