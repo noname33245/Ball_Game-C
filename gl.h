@@ -212,11 +212,10 @@ void ball::normalize()
 //线类函数定义
 line::line()
 {
-	x = y = 400;
+	x = y = 400.0f;
 }
 line::~line()
 {
-	x = y = NULL;
 }
 float line::getx()
 {
@@ -233,6 +232,218 @@ void line::setx(float x)
 void line::sety(float y)
 {
 	this->y = y;
+}
+
+// ============================================================
+// 砖块类型枚举
+// ============================================================
+enum BrickType
+{
+	BRICK_NORMAL = 0,      // 普通砖块：一击即碎
+	BRICK_HARD,            // 坚硬砖块：需两次
+	BRICK_SUPER,           // 超级砖块：需三次
+	BRICK_EXPLOSIVE,       // 爆炸砖块：碎裂时波及四邻
+	BRICK_INDESTRUCTIBLE   // 不可破坏：仅作障碍
+};
+
+// 砖块类
+class Brick
+{
+public:
+	Brick();
+	Brick(float x, float y, float w, float h, BrickType t, COLORREF c);
+	~Brick();
+	bool isAlive();
+	void hit();
+	void destroy();
+	BrickType getType();
+	float getLeft();
+	float getRight();
+	float getTop();
+	float getBottom();
+	COLORREF getColor();
+	int getHits();
+	int getMaxHits();
+	int getScore();
+
+private:
+	float m_x, m_y, m_w, m_h;
+	BrickType m_type;
+	int m_hits;        // 剩余耐久
+	int m_maxHits;
+	COLORREF m_color;
+	bool m_alive;
+};
+
+Brick::Brick()
+	: m_x(0), m_y(0), m_w(0), m_h(0), m_type(BRICK_NORMAL),
+	m_hits(1), m_maxHits(1), m_color(WHITE), m_alive(false) {}
+
+Brick::Brick(float x, float y, float w, float h, BrickType t, COLORREF c)
+	: m_x(x), m_y(y), m_w(w), m_h(h), m_type(t), m_color(c), m_alive(true)
+{
+	switch (t)
+	{
+	case BRICK_NORMAL:      m_hits = 1; m_maxHits = 1; break;
+	case BRICK_HARD:        m_hits = 2; m_maxHits = 2; break;
+	case BRICK_SUPER:       m_hits = 3; m_maxHits = 3; break;
+	case BRICK_EXPLOSIVE:   m_hits = 1; m_maxHits = 1; break;
+	case BRICK_INDESTRUCTIBLE: m_hits = 999; m_maxHits = 999; break;
+	default: m_hits = 1; m_maxHits = 1;
+	}
+}
+
+Brick::~Brick() {}
+
+bool Brick::isAlive() { return m_alive; }
+
+void Brick::hit()
+{
+	if (m_type == BRICK_INDESTRUCTIBLE) return;
+	m_hits--;
+	if (m_hits <= 0) m_alive = false;
+}
+
+void Brick::destroy()
+{
+	if (m_type != BRICK_INDESTRUCTIBLE)
+	{
+		m_hits = 0;
+		m_alive = false;
+	}
+}
+
+BrickType Brick::getType() { return m_type; }
+float Brick::getLeft() { return m_x; }
+float Brick::getRight() { return m_x + m_w; }
+float Brick::getTop() { return m_y + m_h; }
+float Brick::getBottom() { return m_y; }
+COLORREF Brick::getColor() { return m_color; }
+int Brick::getHits() { return m_hits; }
+int Brick::getMaxHits() { return m_maxHits; }
+
+int Brick::getScore()
+{
+	switch (m_type)
+	{
+	case BRICK_NORMAL:    return 10;
+	case BRICK_HARD:      return 25;
+	case BRICK_SUPER:     return 50;
+	case BRICK_EXPLOSIVE: return 15;
+	default: return 0;
+	}
+}
+
+// ============================================================
+// 道具类型枚举
+// ============================================================
+enum PowerUpType
+{
+	POWERUP_WIDE = 0,     // 加宽挡板
+	POWERUP_SLOW,         // 减速球
+	POWERUP_LIFE,         // 额外生命
+	POWERUP_MULTI         // 多球
+};
+
+class PowerUp
+{
+public:
+	PowerUp(float x, float y, PowerUpType t);
+	~PowerUp();
+	void update(float dt);
+	bool isAlive();
+	void kill();
+	float getX();
+	float getY();
+	float getR();
+	PowerUpType getType();
+	COLORREF getColor();
+
+private:
+	float m_x, m_y;
+	float m_vy;
+	float m_r;
+	PowerUpType m_type;
+	COLORREF m_color;
+	bool m_alive;
+};
+
+PowerUp::PowerUp(float x, float y, PowerUpType t)
+	: m_x(x), m_y(y), m_vy(-2.0f), m_r(10.0f), m_type(t), m_alive(true)
+{
+	switch (t)
+	{
+	case POWERUP_WIDE:  m_color = RGB(0, 220, 255); break;
+	case POWERUP_SLOW:  m_color = RGB(180, 180, 255); break;
+	case POWERUP_LIFE:  m_color = RGB(255, 80, 160); break;
+	case POWERUP_MULTI: m_color = RGB(255, 220, 0); break;
+	default: m_color = WHITE;
+	}
+}
+
+PowerUp::~PowerUp() {}
+
+void PowerUp::update(float dt)
+{
+	m_y += m_vy * dt;
+	if (m_y < -20.0f) m_alive = false;
+}
+
+bool PowerUp::isAlive() { return m_alive; }
+void PowerUp::kill() { m_alive = false; }
+float PowerUp::getX() { return m_x; }
+float PowerUp::getY() { return m_y; }
+float PowerUp::getR() { return m_r; }
+PowerUpType PowerUp::getType() { return m_type; }
+COLORREF PowerUp::getColor() { return m_color; }
+
+// ============================================================
+// 粒子特效
+// ============================================================
+class Particle
+{
+public:
+	Particle(float x, float y, float vx, float vy, COLORREF c, float life);
+	~Particle();
+	void update(float dt);
+	bool isAlive();
+	float getX();
+	float getY();
+	COLORREF getColor();
+
+private:
+	float m_x, m_y, m_vx, m_vy;
+	COLORREF m_color;
+	float m_life;
+	float m_maxLife;
+};
+
+Particle::Particle(float x, float y, float vx, float vy, COLORREF c, float life)
+	: m_x(x), m_y(y), m_vx(vx), m_vy(vy), m_color(c), m_life(life), m_maxLife(life) {}
+
+Particle::~Particle() {}
+
+void Particle::update(float dt)
+{
+	m_x += m_vx * dt;
+	m_y += m_vy * dt;
+	m_vy -= 0.15f * dt;  // 轻微重力
+	m_life -= dt;
+}
+
+bool Particle::isAlive() { return m_life > 0; }
+float Particle::getX() { return m_x; }
+float Particle::getY() { return m_y; }
+
+COLORREF Particle::getColor()
+{
+	float alpha = max(0.0f, m_life / m_maxLife);
+	int r = GetRValue(m_color);
+	int g = GetGValue(m_color);
+	int b = GetBValue(m_color);
+	return RGB(static_cast<BYTE>(r * alpha),
+		static_cast<BYTE>(g * alpha),
+		static_cast<BYTE>(b * alpha));
 }
 
 
