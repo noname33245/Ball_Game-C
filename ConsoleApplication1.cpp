@@ -198,3 +198,5066 @@ R:	setorigin(0, 600);
 //}
 //
 //
+#include#include "gl.h"
+#define double float
+
+using namespace std;
+
+const int WND_W = 800;
+const int WND_H = 600;
+const int#include "gl.h"
+#define double float
+
+using namespace std;
+
+const int WND_W = 800;
+const int WND_H = 600;
+const int PADDLE_HALF = 50;
+const int WALL_PAD = 10;
+
+enum GameState { MENU, PLAYING, PAUSED, GAMEOVER };
+
+int main()
+{
+	srand(static_cast<unsigned>(time(0)));
+	initgraph(WND_W, WND_H);
+
+R:
+	setorigin(0, W#include "gl.h"
+#define double float
+
+using namespace std;
+
+const int WND_W = 800;
+const int WND_H = 600;
+const int PADDLE_HALF = 50;
+const int WALL_PAD = 10;
+
+enum GameState { MENU, PLAYING, PAUSED, GAMEOVER };
+
+int main()
+{
+	srand(static_cast<unsigned>(time(0)));
+	initgraph(WND_W, WND_H);
+
+R:
+	setorigin(0, WND_H);
+	setaspectratio(1, -1);
+
+	// 游戏对象
+	ball redBall;		// 水平方向球：玩家1用鼠标Y控制#include "gl.h"
+#define double float
+
+using namespace std;
+
+const int WND_W = 800;
+const int WND_H = 600;
+const int PADDLE_HALF = 50;
+const int WALL_PAD = 10;
+
+enum GameState { MENU, PLAYING, PAUSED, GAMEOVER };
+
+int main()
+{
+	srand(static_cast<unsigned>(time(0)));
+	initgraph(WND_W, WND_H);
+
+R:
+	setorigin(0, WND_H);
+	setaspectratio(1, -1);
+
+	// 游戏对象
+	ball redBall;		// 水平方向球：玩家1用鼠标Y控制右侧挡板
+	ball greenBall;		// 垂直方向球：玩家2用鼠标X控制底部挡板
+	ExMessage mouse;
+	int mouseX = WND_W /#include "gl.h"
+#define double float
+
+using namespace std;
+
+const int WND_W = 800;
+const int WND_H = 600;
+const int PADDLE_HALF = 50;
+const int WALL_PAD = 10;
+
+enum GameState { MENU, PLAYING, PAUSED, GAMEOVER };
+
+int main()
+{
+	srand(static_cast<unsigned>(time(0)));
+	initgraph(WND_W, WND_H);
+
+R:
+	setorigin(0, WND_H);
+	setaspectratio(1, -1);
+
+	// 游戏对象
+	ball redBall;		// 水平方向球：玩家1用鼠标Y控制右侧挡板
+	ball greenBall;		// 垂直方向球：玩家2用鼠标X控制底部挡板
+	ExMessage mouse;
+	int mouseX = WND_W / 2;
+	int mouseY = WND_H / 2;
+
+	int score = 0;
+	int hiScore = 0;
+	int hits = 0;
+	GameState#include "gl.h"
+#define double float
+
+using namespace std;
+
+const int WND_W = 800;
+const int WND_H = 600;
+const int PADDLE_HALF = 50;
+const int WALL_PAD = 10;
+
+enum GameState { MENU, PLAYING, PAUSED, GAMEOVER };
+
+int main()
+{
+	srand(static_cast<unsigned>(time(0)));
+	initgraph(WND_W, WND_H);
+
+R:
+	setorigin(0, WND_H);
+	setaspectratio(1, -1);
+
+	// 游戏对象
+	ball redBall;		// 水平方向球：玩家1用鼠标Y控制右侧挡板
+	ball greenBall;		// 垂直方向球：玩家2用鼠标X控制底部挡板
+	ExMessage mouse;
+	int mouseX = WND_W / 2;
+	int mouseY = WND_H / 2;
+
+	int score = 0;
+	int hiScore = 0;
+	int hits = 0;
+	GameState state = MENU;
+	bool running = true;
+
+	// 两球独立计分
+	int redScore = 0;
+	int greenScore = 0;
+
+	BeginBatchDraw#include "gl.h"
+#define double float
+
+using namespace std;
+
+const int WND_W = 800;
+const int WND_H = 600;
+const int PADDLE_HALF = 50;
+const int WALL_PAD = 10;
+
+enum GameState { MENU, PLAYING, PAUSED, GAMEOVER };
+
+int main()
+{
+	srand(static_cast<unsigned>(time(0)));
+	initgraph(WND_W, WND_H);
+
+R:
+	setorigin(0, WND_H);
+	setaspectratio(1, -1);
+
+	// 游戏对象
+	ball redBall;		// 水平方向球：玩家1用鼠标Y控制右侧挡板
+	ball greenBall;		// 垂直方向球：玩家2用鼠标X控制底部挡板
+	ExMessage mouse;
+	int mouseX = WND_W / 2;
+	int mouseY = WND_H / 2;
+
+	int score = 0;
+	int hiScore = 0;
+	int hits = 0;
+	GameState state = MENU;
+	bool running = true;
+
+	// 两球独立计分
+	int redScore = 0;
+	int greenScore = 0;
+
+	BeginBatchDraw();
+	while (running)
+	{
+		setbkcolor(BLACK);
+		cleardevice();
+
+		// ===== 消息处理 =====
+		while (peek#include "gl.h"
+#define double float
+
+using namespace std;
+
+const int WND_W = 800;
+const int WND_H = 600;
+const int PADDLE_HALF = 50;
+const int WALL_PAD = 10;
+
+enum GameState { MENU, PLAYING, PAUSED, GAMEOVER };
+
+int main()
+{
+	srand(static_cast<unsigned>(time(0)));
+	initgraph(WND_W, WND_H);
+
+R:
+	setorigin(0, WND_H);
+	setaspectratio(1, -1);
+
+	// 游戏对象
+	ball redBall;		// 水平方向球：玩家1用鼠标Y控制右侧挡板
+	ball greenBall;		// 垂直方向球：玩家2用鼠标X控制底部挡板
+	ExMessage mouse;
+	int mouseX = WND_W / 2;
+	int mouseY = WND_H / 2;
+
+	int score = 0;
+	int hiScore = 0;
+	int hits = 0;
+	GameState state = MENU;
+	bool running = true;
+
+	// 两球独立计分
+	int redScore = 0;
+	int greenScore = 0;
+
+	BeginBatchDraw();
+	while (running)
+	{
+		setbkcolor(BLACK);
+		cleardevice();
+
+		// ===== 消息处理 =====
+		while (peekmessage(&mouse, EM_MOUSE | EM_KEY))
+		{
+			// 鼠标坐标：EasyX 默认原点在左上角，y 向下
+			// 我们翻转#include "gl.h"
+#define double float
+
+using namespace std;
+
+const int WND_W = 800;
+const int WND_H = 600;
+const int PADDLE_HALF = 50;
+const int WALL_PAD = 10;
+
+enum GameState { MENU, PLAYING, PAUSED, GAMEOVER };
+
+int main()
+{
+	srand(static_cast<unsigned>(time(0)));
+	initgraph(WND_W, WND_H);
+
+R:
+	setorigin(0, WND_H);
+	setaspectratio(1, -1);
+
+	// 游戏对象
+	ball redBall;		// 水平方向球：玩家1用鼠标Y控制右侧挡板
+	ball greenBall;		// 垂直方向球：玩家2用鼠标X控制底部挡板
+	ExMessage mouse;
+	int mouseX = WND_W / 2;
+	int mouseY = WND_H / 2;
+
+	int score = 0;
+	int hiScore = 0;
+	int hits = 0;
+	GameState state = MENU;
+	bool running = true;
+
+	// 两球独立计分
+	int redScore = 0;
+	int greenScore = 0;
+
+	BeginBatchDraw();
+	while (running)
+	{
+		setbkcolor(BLACK);
+		cleardevice();
+
+		// ===== 消息处理 =====
+		while (peekmessage(&mouse, EM_MOUSE | EM_KEY))
+		{
+			// 鼠标坐标：EasyX 默认原点在左上角，y 向下
+			// 我们翻转了坐标系，所以 y 需要转换
+			mouseX = mouse.x;
+			mouseY = mouse.y;
+
+			if (mouse.message == WM_LBUTTONDOWN)
+		#include "gl.h"
+#define double float
+
+using namespace std;
+
+const int WND_W = 800;
+const int WND_H = 600;
+const int PADDLE_HALF = 50;
+const int WALL_PAD = 10;
+
+enum GameState { MENU, PLAYING, PAUSED, GAMEOVER };
+
+int main()
+{
+	srand(static_cast<unsigned>(time(0)));
+	initgraph(WND_W, WND_H);
+
+R:
+	setorigin(0, WND_H);
+	setaspectratio(1, -1);
+
+	// 游戏对象
+	ball redBall;		// 水平方向球：玩家1用鼠标Y控制右侧挡板
+	ball greenBall;		// 垂直方向球：玩家2用鼠标X控制底部挡板
+	ExMessage mouse;
+	int mouseX = WND_W / 2;
+	int mouseY = WND_H / 2;
+
+	int score = 0;
+	int hiScore = 0;
+	int hits = 0;
+	GameState state = MENU;
+	bool running = true;
+
+	// 两球独立计分
+	int redScore = 0;
+	int greenScore = 0;
+
+	BeginBatchDraw();
+	while (running)
+	{
+		setbkcolor(BLACK);
+		cleardevice();
+
+		// ===== 消息处理 =====
+		while (peekmessage(&mouse, EM_MOUSE | EM_KEY))
+		{
+			// 鼠标坐标：EasyX 默认原点在左上角，y 向下
+			// 我们翻转了坐标系，所以 y 需要转换
+			mouseX = mouse.x;
+			mouseY = mouse.y;
+
+			if (mouse.message == WM_LBUTTONDOWN)
+			{
+				if (state == MENU || state == GAMEOVER)
+				{
+					// 初始化/重置游戏
+					redBall.reset(100#include "gl.h"
+#define double float
+
+using namespace std;
+
+const int WND_W = 800;
+const int WND_H = 600;
+const int PADDLE_HALF = 50;
+const int WALL_PAD = 10;
+
+enum GameState { MENU, PLAYING, PAUSED, GAMEOVER };
+
+int main()
+{
+	srand(static_cast<unsigned>(time(0)));
+	initgraph(WND_W, WND_H);
+
+R:
+	setorigin(0, WND_H);
+	setaspectratio(1, -1);
+
+	// 游戏对象
+	ball redBall;		// 水平方向球：玩家1用鼠标Y控制右侧挡板
+	ball greenBall;		// 垂直方向球：玩家2用鼠标X控制底部挡板
+	ExMessage mouse;
+	int mouseX = WND_W / 2;
+	int mouseY = WND_H / 2;
+
+	int score = 0;
+	int hiScore = 0;
+	int hits = 0;
+	GameState state = MENU;
+	bool running = true;
+
+	// 两球独立计分
+	int redScore = 0;
+	int greenScore = 0;
+
+	BeginBatchDraw();
+	while (running)
+	{
+		setbkcolor(BLACK);
+		cleardevice();
+
+		// ===== 消息处理 =====
+		while (peekmessage(&mouse, EM_MOUSE | EM_KEY))
+		{
+			// 鼠标坐标：EasyX 默认原点在左上角，y 向下
+			// 我们翻转了坐标系，所以 y 需要转换
+			mouseX = mouse.x;
+			mouseY = mouse.y;
+
+			if (mouse.message == WM_LBUTTONDOWN)
+			{
+				if (state == MENU || state == GAMEOVER)
+				{
+					// 初始化/重置游戏
+					redBall.reset(100.0f, 300.0f, 1.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND#include "gl.h"
+#define double float
+
+using namespace std;
+
+const int WND_W = 800;
+const int WND_H = 600;
+const int PADDLE_HALF = 50;
+const int WALL_PAD = 10;
+
+enum GameState { MENU, PLAYING, PAUSED, GAMEOVER };
+
+int main()
+{
+	srand(static_cast<unsigned>(time(0)));
+	initgraph(WND_W, WND_H);
+
+R:
+	setorigin(0, WND_H);
+	setaspectratio(1, -1);
+
+	// 游戏对象
+	ball redBall;		// 水平方向球：玩家1用鼠标Y控制右侧挡板
+	ball greenBall;		// 垂直方向球：玩家2用鼠标X控制底部挡板
+	ExMessage mouse;
+	int mouseX = WND_W / 2;
+	int mouseY = WND_H / 2;
+
+	int score = 0;
+	int hiScore = 0;
+	int hits = 0;
+	GameState state = MENU;
+	bool running = true;
+
+	// 两球独立计分
+	int redScore = 0;
+	int greenScore = 0;
+
+	BeginBatchDraw();
+	while (running)
+	{
+		setbkcolor(BLACK);
+		cleardevice();
+
+		// ===== 消息处理 =====
+		while (peekmessage(&mouse, EM_MOUSE | EM_KEY))
+		{
+			// 鼠标坐标：EasyX 默认原点在左上角，y 向下
+			// 我们翻转了坐标系，所以 y 需要转换
+			mouseX = mouse.x;
+			mouseY = mouse.y;
+
+			if (mouse.message == WM_LBUTTONDOWN)
+			{
+				if (state == MENU || state == GAMEOVER)
+				{
+					// 初始化/重置游戏
+					redBall.reset(100.0f, 300.0f, 1.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f));
+					greenBall.reset(400.0f, 500.0f,
+						-1.0f + static#include "gl.h"
+#define double float
+
+using namespace std;
+
+const int WND_W = 800;
+const int WND_H = 600;
+const int PADDLE_HALF = 50;
+const int WALL_PAD = 10;
+
+enum GameState { MENU, PLAYING, PAUSED, GAMEOVER };
+
+int main()
+{
+	srand(static_cast<unsigned>(time(0)));
+	initgraph(WND_W, WND_H);
+
+R:
+	setorigin(0, WND_H);
+	setaspectratio(1, -1);
+
+	// 游戏对象
+	ball redBall;		// 水平方向球：玩家1用鼠标Y控制右侧挡板
+	ball greenBall;		// 垂直方向球：玩家2用鼠标X控制底部挡板
+	ExMessage mouse;
+	int mouseX = WND_W / 2;
+	int mouseY = WND_H / 2;
+
+	int score = 0;
+	int hiScore = 0;
+	int hits = 0;
+	GameState state = MENU;
+	bool running = true;
+
+	// 两球独立计分
+	int redScore = 0;
+	int greenScore = 0;
+
+	BeginBatchDraw();
+	while (running)
+	{
+		setbkcolor(BLACK);
+		cleardevice();
+
+		// ===== 消息处理 =====
+		while (peekmessage(&mouse, EM_MOUSE | EM_KEY))
+		{
+			// 鼠标坐标：EasyX 默认原点在左上角，y 向下
+			// 我们翻转了坐标系，所以 y 需要转换
+			mouseX = mouse.x;
+			mouseY = mouse.y;
+
+			if (mouse.message == WM_LBUTTONDOWN)
+			{
+				if (state == MENU || state == GAMEOVER)
+				{
+					// 初始化/重置游戏
+					redBall.reset(100.0f, 300.0f, 1.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f));
+					greenBall.reset(400.0f, 500.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f),
+						-1.0f);
+					redBall.setSpeed(6);
+#include "gl.h"
+#define double float
+
+using namespace std;
+
+const int WND_W = 800;
+const int WND_H = 600;
+const int PADDLE_HALF = 50;
+const int WALL_PAD = 10;
+
+enum GameState { MENU, PLAYING, PAUSED, GAMEOVER };
+
+int main()
+{
+	srand(static_cast<unsigned>(time(0)));
+	initgraph(WND_W, WND_H);
+
+R:
+	setorigin(0, WND_H);
+	setaspectratio(1, -1);
+
+	// 游戏对象
+	ball redBall;		// 水平方向球：玩家1用鼠标Y控制右侧挡板
+	ball greenBall;		// 垂直方向球：玩家2用鼠标X控制底部挡板
+	ExMessage mouse;
+	int mouseX = WND_W / 2;
+	int mouseY = WND_H / 2;
+
+	int score = 0;
+	int hiScore = 0;
+	int hits = 0;
+	GameState state = MENU;
+	bool running = true;
+
+	// 两球独立计分
+	int redScore = 0;
+	int greenScore = 0;
+
+	BeginBatchDraw();
+	while (running)
+	{
+		setbkcolor(BLACK);
+		cleardevice();
+
+		// ===== 消息处理 =====
+		while (peekmessage(&mouse, EM_MOUSE | EM_KEY))
+		{
+			// 鼠标坐标：EasyX 默认原点在左上角，y 向下
+			// 我们翻转了坐标系，所以 y 需要转换
+			mouseX = mouse.x;
+			mouseY = mouse.y;
+
+			if (mouse.message == WM_LBUTTONDOWN)
+			{
+				if (state == MENU || state == GAMEOVER)
+				{
+					// 初始化/重置游戏
+					redBall.reset(100.0f, 300.0f, 1.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f));
+					greenBall.reset(400.0f, 500.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f),
+						-1.0f);
+					redBall.setSpeed(6);
+					greenBall.setSpeed(6);
+					score = 0;
+					hits = 0;
+					redScore = 0;
+					greenScore =#include "gl.h"
+#define double float
+
+using namespace std;
+
+const int WND_W = 800;
+const int WND_H = 600;
+const int PADDLE_HALF = 50;
+const int WALL_PAD = 10;
+
+enum GameState { MENU, PLAYING, PAUSED, GAMEOVER };
+
+int main()
+{
+	srand(static_cast<unsigned>(time(0)));
+	initgraph(WND_W, WND_H);
+
+R:
+	setorigin(0, WND_H);
+	setaspectratio(1, -1);
+
+	// 游戏对象
+	ball redBall;		// 水平方向球：玩家1用鼠标Y控制右侧挡板
+	ball greenBall;		// 垂直方向球：玩家2用鼠标X控制底部挡板
+	ExMessage mouse;
+	int mouseX = WND_W / 2;
+	int mouseY = WND_H / 2;
+
+	int score = 0;
+	int hiScore = 0;
+	int hits = 0;
+	GameState state = MENU;
+	bool running = true;
+
+	// 两球独立计分
+	int redScore = 0;
+	int greenScore = 0;
+
+	BeginBatchDraw();
+	while (running)
+	{
+		setbkcolor(BLACK);
+		cleardevice();
+
+		// ===== 消息处理 =====
+		while (peekmessage(&mouse, EM_MOUSE | EM_KEY))
+		{
+			// 鼠标坐标：EasyX 默认原点在左上角，y 向下
+			// 我们翻转了坐标系，所以 y 需要转换
+			mouseX = mouse.x;
+			mouseY = mouse.y;
+
+			if (mouse.message == WM_LBUTTONDOWN)
+			{
+				if (state == MENU || state == GAMEOVER)
+				{
+					// 初始化/重置游戏
+					redBall.reset(100.0f, 300.0f, 1.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f));
+					greenBall.reset(400.0f, 500.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f),
+						-1.0f);
+					redBall.setSpeed(6);
+					greenBall.setSpeed(6);
+					score = 0;
+					hits = 0;
+					redScore = 0;
+					greenScore = 0;
+					state = PLAYING;
+				}
+				else if (state == PLAYING)
+				{
+					state = PAUSED;
+				}
+#include "gl.h"
+#define double float
+
+using namespace std;
+
+const int WND_W = 800;
+const int WND_H = 600;
+const int PADDLE_HALF = 50;
+const int WALL_PAD = 10;
+
+enum GameState { MENU, PLAYING, PAUSED, GAMEOVER };
+
+int main()
+{
+	srand(static_cast<unsigned>(time(0)));
+	initgraph(WND_W, WND_H);
+
+R:
+	setorigin(0, WND_H);
+	setaspectratio(1, -1);
+
+	// 游戏对象
+	ball redBall;		// 水平方向球：玩家1用鼠标Y控制右侧挡板
+	ball greenBall;		// 垂直方向球：玩家2用鼠标X控制底部挡板
+	ExMessage mouse;
+	int mouseX = WND_W / 2;
+	int mouseY = WND_H / 2;
+
+	int score = 0;
+	int hiScore = 0;
+	int hits = 0;
+	GameState state = MENU;
+	bool running = true;
+
+	// 两球独立计分
+	int redScore = 0;
+	int greenScore = 0;
+
+	BeginBatchDraw();
+	while (running)
+	{
+		setbkcolor(BLACK);
+		cleardevice();
+
+		// ===== 消息处理 =====
+		while (peekmessage(&mouse, EM_MOUSE | EM_KEY))
+		{
+			// 鼠标坐标：EasyX 默认原点在左上角，y 向下
+			// 我们翻转了坐标系，所以 y 需要转换
+			mouseX = mouse.x;
+			mouseY = mouse.y;
+
+			if (mouse.message == WM_LBUTTONDOWN)
+			{
+				if (state == MENU || state == GAMEOVER)
+				{
+					// 初始化/重置游戏
+					redBall.reset(100.0f, 300.0f, 1.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f));
+					greenBall.reset(400.0f, 500.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f),
+						-1.0f);
+					redBall.setSpeed(6);
+					greenBall.setSpeed(6);
+					score = 0;
+					hits = 0;
+					redScore = 0;
+					greenScore = 0;
+					state = PLAYING;
+				}
+				else if (state == PLAYING)
+				{
+					state = PAUSED;
+				}
+				else if (state == PAUSED)
+				{
+					state = PLAYING;
+				}
+			}
+			else if (mouse.message == WM_RBUTTONDOWN)
+			{
+				if (state == PLAYING || state == PAUSED || state == MENU || state == GAMEOVER)
+				{
+					running = false;
+					break;
+				}
+			}
+			else if (mouse.message == WM_KEYDOWN)
+			{
+				if (mouse.vkcode == VK_ESCAPE)
+				{
+					running = false;
+					break;
+				}
+				else if (mouse#include "gl.h"
+#define double float
+
+using namespace std;
+
+const int WND_W = 800;
+const int WND_H = 600;
+const int PADDLE_HALF = 50;
+const int WALL_PAD = 10;
+
+enum GameState { MENU, PLAYING, PAUSED, GAMEOVER };
+
+int main()
+{
+	srand(static_cast<unsigned>(time(0)));
+	initgraph(WND_W, WND_H);
+
+R:
+	setorigin(0, WND_H);
+	setaspectratio(1, -1);
+
+	// 游戏对象
+	ball redBall;		// 水平方向球：玩家1用鼠标Y控制右侧挡板
+	ball greenBall;		// 垂直方向球：玩家2用鼠标X控制底部挡板
+	ExMessage mouse;
+	int mouseX = WND_W / 2;
+	int mouseY = WND_H / 2;
+
+	int score = 0;
+	int hiScore = 0;
+	int hits = 0;
+	GameState state = MENU;
+	bool running = true;
+
+	// 两球独立计分
+	int redScore = 0;
+	int greenScore = 0;
+
+	BeginBatchDraw();
+	while (running)
+	{
+		setbkcolor(BLACK);
+		cleardevice();
+
+		// ===== 消息处理 =====
+		while (peekmessage(&mouse, EM_MOUSE | EM_KEY))
+		{
+			// 鼠标坐标：EasyX 默认原点在左上角，y 向下
+			// 我们翻转了坐标系，所以 y 需要转换
+			mouseX = mouse.x;
+			mouseY = mouse.y;
+
+			if (mouse.message == WM_LBUTTONDOWN)
+			{
+				if (state == MENU || state == GAMEOVER)
+				{
+					// 初始化/重置游戏
+					redBall.reset(100.0f, 300.0f, 1.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f));
+					greenBall.reset(400.0f, 500.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f),
+						-1.0f);
+					redBall.setSpeed(6);
+					greenBall.setSpeed(6);
+					score = 0;
+					hits = 0;
+					redScore = 0;
+					greenScore = 0;
+					state = PLAYING;
+				}
+				else if (state == PLAYING)
+				{
+					state = PAUSED;
+				}
+				else if (state == PAUSED)
+				{
+					state = PLAYING;
+				}
+			}
+			else if (mouse.message == WM_RBUTTONDOWN)
+			{
+				if (state == PLAYING || state == PAUSED || state == MENU || state == GAMEOVER)
+				{
+					running = false;
+					break;
+				}
+			}
+			else if (mouse.message == WM_KEYDOWN)
+			{
+				if (mouse.vkcode == VK_ESCAPE)
+				{
+					running = false;
+					break;
+				}
+				else if (mouse.vkcode == VK_SPACE)
+				{
+					if (state == PLAYING) state = PAUSED;
+					else if (state == PAUSED) state = PLAYING#include "gl.h"
+#define double float
+
+using namespace std;
+
+const int WND_W = 800;
+const int WND_H = 600;
+const int PADDLE_HALF = 50;
+const int WALL_PAD = 10;
+
+enum GameState { MENU, PLAYING, PAUSED, GAMEOVER };
+
+int main()
+{
+	srand(static_cast<unsigned>(time(0)));
+	initgraph(WND_W, WND_H);
+
+R:
+	setorigin(0, WND_H);
+	setaspectratio(1, -1);
+
+	// 游戏对象
+	ball redBall;		// 水平方向球：玩家1用鼠标Y控制右侧挡板
+	ball greenBall;		// 垂直方向球：玩家2用鼠标X控制底部挡板
+	ExMessage mouse;
+	int mouseX = WND_W / 2;
+	int mouseY = WND_H / 2;
+
+	int score = 0;
+	int hiScore = 0;
+	int hits = 0;
+	GameState state = MENU;
+	bool running = true;
+
+	// 两球独立计分
+	int redScore = 0;
+	int greenScore = 0;
+
+	BeginBatchDraw();
+	while (running)
+	{
+		setbkcolor(BLACK);
+		cleardevice();
+
+		// ===== 消息处理 =====
+		while (peekmessage(&mouse, EM_MOUSE | EM_KEY))
+		{
+			// 鼠标坐标：EasyX 默认原点在左上角，y 向下
+			// 我们翻转了坐标系，所以 y 需要转换
+			mouseX = mouse.x;
+			mouseY = mouse.y;
+
+			if (mouse.message == WM_LBUTTONDOWN)
+			{
+				if (state == MENU || state == GAMEOVER)
+				{
+					// 初始化/重置游戏
+					redBall.reset(100.0f, 300.0f, 1.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f));
+					greenBall.reset(400.0f, 500.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f),
+						-1.0f);
+					redBall.setSpeed(6);
+					greenBall.setSpeed(6);
+					score = 0;
+					hits = 0;
+					redScore = 0;
+					greenScore = 0;
+					state = PLAYING;
+				}
+				else if (state == PLAYING)
+				{
+					state = PAUSED;
+				}
+				else if (state == PAUSED)
+				{
+					state = PLAYING;
+				}
+			}
+			else if (mouse.message == WM_RBUTTONDOWN)
+			{
+				if (state == PLAYING || state == PAUSED || state == MENU || state == GAMEOVER)
+				{
+					running = false;
+					break;
+				}
+			}
+			else if (mouse.message == WM_KEYDOWN)
+			{
+				if (mouse.vkcode == VK_ESCAPE)
+				{
+					running = false;
+					break;
+				}
+				else if (mouse.vkcode == VK_SPACE)
+				{
+					if (state == PLAYING) state = PAUSED;
+					else if (state == PAUSED) state = PLAYING;
+				}
+			}
+		}
+		if (!running) break;
+
+		// ===== 游戏逻辑 =====
+		if (state == PLAYING)
+#include "gl.h"
+#define double float
+
+using namespace std;
+
+const int WND_W = 800;
+const int WND_H = 600;
+const int PADDLE_HALF = 50;
+const int WALL_PAD = 10;
+
+enum GameState { MENU, PLAYING, PAUSED, GAMEOVER };
+
+int main()
+{
+	srand(static_cast<unsigned>(time(0)));
+	initgraph(WND_W, WND_H);
+
+R:
+	setorigin(0, WND_H);
+	setaspectratio(1, -1);
+
+	// 游戏对象
+	ball redBall;		// 水平方向球：玩家1用鼠标Y控制右侧挡板
+	ball greenBall;		// 垂直方向球：玩家2用鼠标X控制底部挡板
+	ExMessage mouse;
+	int mouseX = WND_W / 2;
+	int mouseY = WND_H / 2;
+
+	int score = 0;
+	int hiScore = 0;
+	int hits = 0;
+	GameState state = MENU;
+	bool running = true;
+
+	// 两球独立计分
+	int redScore = 0;
+	int greenScore = 0;
+
+	BeginBatchDraw();
+	while (running)
+	{
+		setbkcolor(BLACK);
+		cleardevice();
+
+		// ===== 消息处理 =====
+		while (peekmessage(&mouse, EM_MOUSE | EM_KEY))
+		{
+			// 鼠标坐标：EasyX 默认原点在左上角，y 向下
+			// 我们翻转了坐标系，所以 y 需要转换
+			mouseX = mouse.x;
+			mouseY = mouse.y;
+
+			if (mouse.message == WM_LBUTTONDOWN)
+			{
+				if (state == MENU || state == GAMEOVER)
+				{
+					// 初始化/重置游戏
+					redBall.reset(100.0f, 300.0f, 1.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f));
+					greenBall.reset(400.0f, 500.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f),
+						-1.0f);
+					redBall.setSpeed(6);
+					greenBall.setSpeed(6);
+					score = 0;
+					hits = 0;
+					redScore = 0;
+					greenScore = 0;
+					state = PLAYING;
+				}
+				else if (state == PLAYING)
+				{
+					state = PAUSED;
+				}
+				else if (state == PAUSED)
+				{
+					state = PLAYING;
+				}
+			}
+			else if (mouse.message == WM_RBUTTONDOWN)
+			{
+				if (state == PLAYING || state == PAUSED || state == MENU || state == GAMEOVER)
+				{
+					running = false;
+					break;
+				}
+			}
+			else if (mouse.message == WM_KEYDOWN)
+			{
+				if (mouse.vkcode == VK_ESCAPE)
+				{
+					running = false;
+					break;
+				}
+				else if (mouse.vkcode == VK_SPACE)
+				{
+					if (state == PLAYING) state = PAUSED;
+					else if (state == PAUSED) state = PLAYING;
+				}
+			}
+		}
+		if (!running) break;
+
+		// ===== 游戏逻辑 =====
+		if (state == PLAYING)
+		{
+			// 挡板的"显示"y 值在翻转坐标系中 = WND_H - mouseY
+			float paddleY = static_cast<float>(WND_H -#include "gl.h"
+#define double float
+
+using namespace std;
+
+const int WND_W = 800;
+const int WND_H = 600;
+const int PADDLE_HALF = 50;
+const int WALL_PAD = 10;
+
+enum GameState { MENU, PLAYING, PAUSED, GAMEOVER };
+
+int main()
+{
+	srand(static_cast<unsigned>(time(0)));
+	initgraph(WND_W, WND_H);
+
+R:
+	setorigin(0, WND_H);
+	setaspectratio(1, -1);
+
+	// 游戏对象
+	ball redBall;		// 水平方向球：玩家1用鼠标Y控制右侧挡板
+	ball greenBall;		// 垂直方向球：玩家2用鼠标X控制底部挡板
+	ExMessage mouse;
+	int mouseX = WND_W / 2;
+	int mouseY = WND_H / 2;
+
+	int score = 0;
+	int hiScore = 0;
+	int hits = 0;
+	GameState state = MENU;
+	bool running = true;
+
+	// 两球独立计分
+	int redScore = 0;
+	int greenScore = 0;
+
+	BeginBatchDraw();
+	while (running)
+	{
+		setbkcolor(BLACK);
+		cleardevice();
+
+		// ===== 消息处理 =====
+		while (peekmessage(&mouse, EM_MOUSE | EM_KEY))
+		{
+			// 鼠标坐标：EasyX 默认原点在左上角，y 向下
+			// 我们翻转了坐标系，所以 y 需要转换
+			mouseX = mouse.x;
+			mouseY = mouse.y;
+
+			if (mouse.message == WM_LBUTTONDOWN)
+			{
+				if (state == MENU || state == GAMEOVER)
+				{
+					// 初始化/重置游戏
+					redBall.reset(100.0f, 300.0f, 1.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f));
+					greenBall.reset(400.0f, 500.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f),
+						-1.0f);
+					redBall.setSpeed(6);
+					greenBall.setSpeed(6);
+					score = 0;
+					hits = 0;
+					redScore = 0;
+					greenScore = 0;
+					state = PLAYING;
+				}
+				else if (state == PLAYING)
+				{
+					state = PAUSED;
+				}
+				else if (state == PAUSED)
+				{
+					state = PLAYING;
+				}
+			}
+			else if (mouse.message == WM_RBUTTONDOWN)
+			{
+				if (state == PLAYING || state == PAUSED || state == MENU || state == GAMEOVER)
+				{
+					running = false;
+					break;
+				}
+			}
+			else if (mouse.message == WM_KEYDOWN)
+			{
+				if (mouse.vkcode == VK_ESCAPE)
+				{
+					running = false;
+					break;
+				}
+				else if (mouse.vkcode == VK_SPACE)
+				{
+					if (state == PLAYING) state = PAUSED;
+					else if (state == PAUSED) state = PLAYING;
+				}
+			}
+		}
+		if (!running) break;
+
+		// ===== 游戏逻辑 =====
+		if (state == PLAYING)
+		{
+			// 挡板的"显示"y 值在翻转坐标系中 = WND_H - mouseY
+			float paddleY = static_cast<float>(WND_H - mouseY);
+			float paddleX = static_cast<float>(mouseX);
+
+			// 限制鼠标挡板在合理范围
+			if (paddleY < PADDLE_HAL#include "gl.h"
+#define double float
+
+using namespace std;
+
+const int WND_W = 800;
+const int WND_H = 600;
+const int PADDLE_HALF = 50;
+const int WALL_PAD = 10;
+
+enum GameState { MENU, PLAYING, PAUSED, GAMEOVER };
+
+int main()
+{
+	srand(static_cast<unsigned>(time(0)));
+	initgraph(WND_W, WND_H);
+
+R:
+	setorigin(0, WND_H);
+	setaspectratio(1, -1);
+
+	// 游戏对象
+	ball redBall;		// 水平方向球：玩家1用鼠标Y控制右侧挡板
+	ball greenBall;		// 垂直方向球：玩家2用鼠标X控制底部挡板
+	ExMessage mouse;
+	int mouseX = WND_W / 2;
+	int mouseY = WND_H / 2;
+
+	int score = 0;
+	int hiScore = 0;
+	int hits = 0;
+	GameState state = MENU;
+	bool running = true;
+
+	// 两球独立计分
+	int redScore = 0;
+	int greenScore = 0;
+
+	BeginBatchDraw();
+	while (running)
+	{
+		setbkcolor(BLACK);
+		cleardevice();
+
+		// ===== 消息处理 =====
+		while (peekmessage(&mouse, EM_MOUSE | EM_KEY))
+		{
+			// 鼠标坐标：EasyX 默认原点在左上角，y 向下
+			// 我们翻转了坐标系，所以 y 需要转换
+			mouseX = mouse.x;
+			mouseY = mouse.y;
+
+			if (mouse.message == WM_LBUTTONDOWN)
+			{
+				if (state == MENU || state == GAMEOVER)
+				{
+					// 初始化/重置游戏
+					redBall.reset(100.0f, 300.0f, 1.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f));
+					greenBall.reset(400.0f, 500.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f),
+						-1.0f);
+					redBall.setSpeed(6);
+					greenBall.setSpeed(6);
+					score = 0;
+					hits = 0;
+					redScore = 0;
+					greenScore = 0;
+					state = PLAYING;
+				}
+				else if (state == PLAYING)
+				{
+					state = PAUSED;
+				}
+				else if (state == PAUSED)
+				{
+					state = PLAYING;
+				}
+			}
+			else if (mouse.message == WM_RBUTTONDOWN)
+			{
+				if (state == PLAYING || state == PAUSED || state == MENU || state == GAMEOVER)
+				{
+					running = false;
+					break;
+				}
+			}
+			else if (mouse.message == WM_KEYDOWN)
+			{
+				if (mouse.vkcode == VK_ESCAPE)
+				{
+					running = false;
+					break;
+				}
+				else if (mouse.vkcode == VK_SPACE)
+				{
+					if (state == PLAYING) state = PAUSED;
+					else if (state == PAUSED) state = PLAYING;
+				}
+			}
+		}
+		if (!running) break;
+
+		// ===== 游戏逻辑 =====
+		if (state == PLAYING)
+		{
+			// 挡板的"显示"y 值在翻转坐标系中 = WND_H - mouseY
+			float paddleY = static_cast<float>(WND_H - mouseY);
+			float paddleX = static_cast<float>(mouseX);
+
+			// 限制鼠标挡板在合理范围
+			if (paddleY < PADDLE_HALF) paddleY = static_cast<float>(PADDLE_HALF);
+			if (paddleY > WND_H - PADDLE_HALF) paddleY = static_cast#include "gl.h"
+#define double float
+
+using namespace std;
+
+const int WND_W = 800;
+const int WND_H = 600;
+const int PADDLE_HALF = 50;
+const int WALL_PAD = 10;
+
+enum GameState { MENU, PLAYING, PAUSED, GAMEOVER };
+
+int main()
+{
+	srand(static_cast<unsigned>(time(0)));
+	initgraph(WND_W, WND_H);
+
+R:
+	setorigin(0, WND_H);
+	setaspectratio(1, -1);
+
+	// 游戏对象
+	ball redBall;		// 水平方向球：玩家1用鼠标Y控制右侧挡板
+	ball greenBall;		// 垂直方向球：玩家2用鼠标X控制底部挡板
+	ExMessage mouse;
+	int mouseX = WND_W / 2;
+	int mouseY = WND_H / 2;
+
+	int score = 0;
+	int hiScore = 0;
+	int hits = 0;
+	GameState state = MENU;
+	bool running = true;
+
+	// 两球独立计分
+	int redScore = 0;
+	int greenScore = 0;
+
+	BeginBatchDraw();
+	while (running)
+	{
+		setbkcolor(BLACK);
+		cleardevice();
+
+		// ===== 消息处理 =====
+		while (peekmessage(&mouse, EM_MOUSE | EM_KEY))
+		{
+			// 鼠标坐标：EasyX 默认原点在左上角，y 向下
+			// 我们翻转了坐标系，所以 y 需要转换
+			mouseX = mouse.x;
+			mouseY = mouse.y;
+
+			if (mouse.message == WM_LBUTTONDOWN)
+			{
+				if (state == MENU || state == GAMEOVER)
+				{
+					// 初始化/重置游戏
+					redBall.reset(100.0f, 300.0f, 1.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f));
+					greenBall.reset(400.0f, 500.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f),
+						-1.0f);
+					redBall.setSpeed(6);
+					greenBall.setSpeed(6);
+					score = 0;
+					hits = 0;
+					redScore = 0;
+					greenScore = 0;
+					state = PLAYING;
+				}
+				else if (state == PLAYING)
+				{
+					state = PAUSED;
+				}
+				else if (state == PAUSED)
+				{
+					state = PLAYING;
+				}
+			}
+			else if (mouse.message == WM_RBUTTONDOWN)
+			{
+				if (state == PLAYING || state == PAUSED || state == MENU || state == GAMEOVER)
+				{
+					running = false;
+					break;
+				}
+			}
+			else if (mouse.message == WM_KEYDOWN)
+			{
+				if (mouse.vkcode == VK_ESCAPE)
+				{
+					running = false;
+					break;
+				}
+				else if (mouse.vkcode == VK_SPACE)
+				{
+					if (state == PLAYING) state = PAUSED;
+					else if (state == PAUSED) state = PLAYING;
+				}
+			}
+		}
+		if (!running) break;
+
+		// ===== 游戏逻辑 =====
+		if (state == PLAYING)
+		{
+			// 挡板的"显示"y 值在翻转坐标系中 = WND_H - mouseY
+			float paddleY = static_cast<float>(WND_H - mouseY);
+			float paddleX = static_cast<float>(mouseX);
+
+			// 限制鼠标挡板在合理范围
+			if (paddleY < PADDLE_HALF) paddleY = static_cast<float>(PADDLE_HALF);
+			if (paddleY > WND_H - PADDLE_HALF) paddleY = static_cast<float>(WND_H - PADDLE_HALF);
+			if (paddleX < PADDLE_HALF) paddleX = static_cast<float>(PADDLE_HALF);
+			if (paddleX >#include "gl.h"
+#define double float
+
+using namespace std;
+
+const int WND_W = 800;
+const int WND_H = 600;
+const int PADDLE_HALF = 50;
+const int WALL_PAD = 10;
+
+enum GameState { MENU, PLAYING, PAUSED, GAMEOVER };
+
+int main()
+{
+	srand(static_cast<unsigned>(time(0)));
+	initgraph(WND_W, WND_H);
+
+R:
+	setorigin(0, WND_H);
+	setaspectratio(1, -1);
+
+	// 游戏对象
+	ball redBall;		// 水平方向球：玩家1用鼠标Y控制右侧挡板
+	ball greenBall;		// 垂直方向球：玩家2用鼠标X控制底部挡板
+	ExMessage mouse;
+	int mouseX = WND_W / 2;
+	int mouseY = WND_H / 2;
+
+	int score = 0;
+	int hiScore = 0;
+	int hits = 0;
+	GameState state = MENU;
+	bool running = true;
+
+	// 两球独立计分
+	int redScore = 0;
+	int greenScore = 0;
+
+	BeginBatchDraw();
+	while (running)
+	{
+		setbkcolor(BLACK);
+		cleardevice();
+
+		// ===== 消息处理 =====
+		while (peekmessage(&mouse, EM_MOUSE | EM_KEY))
+		{
+			// 鼠标坐标：EasyX 默认原点在左上角，y 向下
+			// 我们翻转了坐标系，所以 y 需要转换
+			mouseX = mouse.x;
+			mouseY = mouse.y;
+
+			if (mouse.message == WM_LBUTTONDOWN)
+			{
+				if (state == MENU || state == GAMEOVER)
+				{
+					// 初始化/重置游戏
+					redBall.reset(100.0f, 300.0f, 1.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f));
+					greenBall.reset(400.0f, 500.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f),
+						-1.0f);
+					redBall.setSpeed(6);
+					greenBall.setSpeed(6);
+					score = 0;
+					hits = 0;
+					redScore = 0;
+					greenScore = 0;
+					state = PLAYING;
+				}
+				else if (state == PLAYING)
+				{
+					state = PAUSED;
+				}
+				else if (state == PAUSED)
+				{
+					state = PLAYING;
+				}
+			}
+			else if (mouse.message == WM_RBUTTONDOWN)
+			{
+				if (state == PLAYING || state == PAUSED || state == MENU || state == GAMEOVER)
+				{
+					running = false;
+					break;
+				}
+			}
+			else if (mouse.message == WM_KEYDOWN)
+			{
+				if (mouse.vkcode == VK_ESCAPE)
+				{
+					running = false;
+					break;
+				}
+				else if (mouse.vkcode == VK_SPACE)
+				{
+					if (state == PLAYING) state = PAUSED;
+					else if (state == PAUSED) state = PLAYING;
+				}
+			}
+		}
+		if (!running) break;
+
+		// ===== 游戏逻辑 =====
+		if (state == PLAYING)
+		{
+			// 挡板的"显示"y 值在翻转坐标系中 = WND_H - mouseY
+			float paddleY = static_cast<float>(WND_H - mouseY);
+			float paddleX = static_cast<float>(mouseX);
+
+			// 限制鼠标挡板在合理范围
+			if (paddleY < PADDLE_HALF) paddleY = static_cast<float>(PADDLE_HALF);
+			if (paddleY > WND_H - PADDLE_HALF) paddleY = static_cast<float>(WND_H - PADDLE_HALF);
+			if (paddleX < PADDLE_HALF) paddleX = static_cast<float>(PADDLE_HALF);
+			if (paddleX > WND_W - PADDLE_HALF) paddleX = static_cast<float>(WND_W - PADDLE_HALF);
+
+			// ===== 红球逻辑（水平左右飞行） =====
+			float rx = redBall.getx();
+			float ry = redBall.gety();
+			float rvx = redBall.getrotationx();
+			float rvy = redBall.getrotationy();
+			float rspeed = static_cast<float>(redBall.get#include "gl.h"
+#define double float
+
+using namespace std;
+
+const int WND_W = 800;
+const int WND_H = 600;
+const int PADDLE_HALF = 50;
+const int WALL_PAD = 10;
+
+enum GameState { MENU, PLAYING, PAUSED, GAMEOVER };
+
+int main()
+{
+	srand(static_cast<unsigned>(time(0)));
+	initgraph(WND_W, WND_H);
+
+R:
+	setorigin(0, WND_H);
+	setaspectratio(1, -1);
+
+	// 游戏对象
+	ball redBall;		// 水平方向球：玩家1用鼠标Y控制右侧挡板
+	ball greenBall;		// 垂直方向球：玩家2用鼠标X控制底部挡板
+	ExMessage mouse;
+	int mouseX = WND_W / 2;
+	int mouseY = WND_H / 2;
+
+	int score = 0;
+	int hiScore = 0;
+	int hits = 0;
+	GameState state = MENU;
+	bool running = true;
+
+	// 两球独立计分
+	int redScore = 0;
+	int greenScore = 0;
+
+	BeginBatchDraw();
+	while (running)
+	{
+		setbkcolor(BLACK);
+		cleardevice();
+
+		// ===== 消息处理 =====
+		while (peekmessage(&mouse, EM_MOUSE | EM_KEY))
+		{
+			// 鼠标坐标：EasyX 默认原点在左上角，y 向下
+			// 我们翻转了坐标系，所以 y 需要转换
+			mouseX = mouse.x;
+			mouseY = mouse.y;
+
+			if (mouse.message == WM_LBUTTONDOWN)
+			{
+				if (state == MENU || state == GAMEOVER)
+				{
+					// 初始化/重置游戏
+					redBall.reset(100.0f, 300.0f, 1.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f));
+					greenBall.reset(400.0f, 500.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f),
+						-1.0f);
+					redBall.setSpeed(6);
+					greenBall.setSpeed(6);
+					score = 0;
+					hits = 0;
+					redScore = 0;
+					greenScore = 0;
+					state = PLAYING;
+				}
+				else if (state == PLAYING)
+				{
+					state = PAUSED;
+				}
+				else if (state == PAUSED)
+				{
+					state = PLAYING;
+				}
+			}
+			else if (mouse.message == WM_RBUTTONDOWN)
+			{
+				if (state == PLAYING || state == PAUSED || state == MENU || state == GAMEOVER)
+				{
+					running = false;
+					break;
+				}
+			}
+			else if (mouse.message == WM_KEYDOWN)
+			{
+				if (mouse.vkcode == VK_ESCAPE)
+				{
+					running = false;
+					break;
+				}
+				else if (mouse.vkcode == VK_SPACE)
+				{
+					if (state == PLAYING) state = PAUSED;
+					else if (state == PAUSED) state = PLAYING;
+				}
+			}
+		}
+		if (!running) break;
+
+		// ===== 游戏逻辑 =====
+		if (state == PLAYING)
+		{
+			// 挡板的"显示"y 值在翻转坐标系中 = WND_H - mouseY
+			float paddleY = static_cast<float>(WND_H - mouseY);
+			float paddleX = static_cast<float>(mouseX);
+
+			// 限制鼠标挡板在合理范围
+			if (paddleY < PADDLE_HALF) paddleY = static_cast<float>(PADDLE_HALF);
+			if (paddleY > WND_H - PADDLE_HALF) paddleY = static_cast<float>(WND_H - PADDLE_HALF);
+			if (paddleX < PADDLE_HALF) paddleX = static_cast<float>(PADDLE_HALF);
+			if (paddleX > WND_W - PADDLE_HALF) paddleX = static_cast<float>(WND_W - PADDLE_HALF);
+
+			// ===== 红球逻辑（水平左右飞行） =====
+			float rx = redBall.getx();
+			float ry = redBall.gety();
+			float rvx = redBall.getrotationx();
+			float rvy = redBall.getrotationy();
+			float rspeed = static_cast<float>(redBall.getSpeed());
+			int rr = redBall.r;
+
+			// 上/下边界反弹
+			if (ry - rr <= 0) { ry = static_cast<float>(rr); rvy = fabsf(rvy); }
+			if (ry + rr >= WND_H) { ry = static_cast<float>(WND_H - rr); rvy = -fabsf(rvy); }
+
+			// 左墙（AI/静态挡板）反弹
+			if (rx - rr <= WALL_PAD)
+			{
+				rx = static_cast<float>(WALL_PAD + rr);
+				rvx = fabsf(rvx);
+				// 随机偏移 y 方向
+				rvy += -1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f);
+			}
+
+			// 右侧玩家挡板碰撞（在翻转坐标系中挡板 y = paddleY）
+			if (rx + rr >=#include "gl.h"
+#define double float
+
+using namespace std;
+
+const int WND_W = 800;
+const int WND_H = 600;
+const int PADDLE_HALF = 50;
+const int WALL_PAD = 10;
+
+enum GameState { MENU, PLAYING, PAUSED, GAMEOVER };
+
+int main()
+{
+	srand(static_cast<unsigned>(time(0)));
+	initgraph(WND_W, WND_H);
+
+R:
+	setorigin(0, WND_H);
+	setaspectratio(1, -1);
+
+	// 游戏对象
+	ball redBall;		// 水平方向球：玩家1用鼠标Y控制右侧挡板
+	ball greenBall;		// 垂直方向球：玩家2用鼠标X控制底部挡板
+	ExMessage mouse;
+	int mouseX = WND_W / 2;
+	int mouseY = WND_H / 2;
+
+	int score = 0;
+	int hiScore = 0;
+	int hits = 0;
+	GameState state = MENU;
+	bool running = true;
+
+	// 两球独立计分
+	int redScore = 0;
+	int greenScore = 0;
+
+	BeginBatchDraw();
+	while (running)
+	{
+		setbkcolor(BLACK);
+		cleardevice();
+
+		// ===== 消息处理 =====
+		while (peekmessage(&mouse, EM_MOUSE | EM_KEY))
+		{
+			// 鼠标坐标：EasyX 默认原点在左上角，y 向下
+			// 我们翻转了坐标系，所以 y 需要转换
+			mouseX = mouse.x;
+			mouseY = mouse.y;
+
+			if (mouse.message == WM_LBUTTONDOWN)
+			{
+				if (state == MENU || state == GAMEOVER)
+				{
+					// 初始化/重置游戏
+					redBall.reset(100.0f, 300.0f, 1.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f));
+					greenBall.reset(400.0f, 500.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f),
+						-1.0f);
+					redBall.setSpeed(6);
+					greenBall.setSpeed(6);
+					score = 0;
+					hits = 0;
+					redScore = 0;
+					greenScore = 0;
+					state = PLAYING;
+				}
+				else if (state == PLAYING)
+				{
+					state = PAUSED;
+				}
+				else if (state == PAUSED)
+				{
+					state = PLAYING;
+				}
+			}
+			else if (mouse.message == WM_RBUTTONDOWN)
+			{
+				if (state == PLAYING || state == PAUSED || state == MENU || state == GAMEOVER)
+				{
+					running = false;
+					break;
+				}
+			}
+			else if (mouse.message == WM_KEYDOWN)
+			{
+				if (mouse.vkcode == VK_ESCAPE)
+				{
+					running = false;
+					break;
+				}
+				else if (mouse.vkcode == VK_SPACE)
+				{
+					if (state == PLAYING) state = PAUSED;
+					else if (state == PAUSED) state = PLAYING;
+				}
+			}
+		}
+		if (!running) break;
+
+		// ===== 游戏逻辑 =====
+		if (state == PLAYING)
+		{
+			// 挡板的"显示"y 值在翻转坐标系中 = WND_H - mouseY
+			float paddleY = static_cast<float>(WND_H - mouseY);
+			float paddleX = static_cast<float>(mouseX);
+
+			// 限制鼠标挡板在合理范围
+			if (paddleY < PADDLE_HALF) paddleY = static_cast<float>(PADDLE_HALF);
+			if (paddleY > WND_H - PADDLE_HALF) paddleY = static_cast<float>(WND_H - PADDLE_HALF);
+			if (paddleX < PADDLE_HALF) paddleX = static_cast<float>(PADDLE_HALF);
+			if (paddleX > WND_W - PADDLE_HALF) paddleX = static_cast<float>(WND_W - PADDLE_HALF);
+
+			// ===== 红球逻辑（水平左右飞行） =====
+			float rx = redBall.getx();
+			float ry = redBall.gety();
+			float rvx = redBall.getrotationx();
+			float rvy = redBall.getrotationy();
+			float rspeed = static_cast<float>(redBall.getSpeed());
+			int rr = redBall.r;
+
+			// 上/下边界反弹
+			if (ry - rr <= 0) { ry = static_cast<float>(rr); rvy = fabsf(rvy); }
+			if (ry + rr >= WND_H) { ry = static_cast<float>(WND_H - rr); rvy = -fabsf(rvy); }
+
+			// 左墙（AI/静态挡板）反弹
+			if (rx - rr <= WALL_PAD)
+			{
+				rx = static_cast<float>(WALL_PAD + rr);
+				rvx = fabsf(rvx);
+				// 随机偏移 y 方向
+				rvy += -1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f);
+			}
+
+			// 右侧玩家挡板碰撞（在翻转坐标系中挡板 y = paddleY）
+			if (rx + rr >= WND_W - WALL_PAD && rvx > 0)
+			{
+				if (fabsf(ry - paddleY) <= static_cast<float>(PADDLE_HALF))
+				{
+					rx = static_cast<float>(WND_W - WALL_PAD - rr);
+				#include "gl.h"
+#define double float
+
+using namespace std;
+
+const int WND_W = 800;
+const int WND_H = 600;
+const int PADDLE_HALF = 50;
+const int WALL_PAD = 10;
+
+enum GameState { MENU, PLAYING, PAUSED, GAMEOVER };
+
+int main()
+{
+	srand(static_cast<unsigned>(time(0)));
+	initgraph(WND_W, WND_H);
+
+R:
+	setorigin(0, WND_H);
+	setaspectratio(1, -1);
+
+	// 游戏对象
+	ball redBall;		// 水平方向球：玩家1用鼠标Y控制右侧挡板
+	ball greenBall;		// 垂直方向球：玩家2用鼠标X控制底部挡板
+	ExMessage mouse;
+	int mouseX = WND_W / 2;
+	int mouseY = WND_H / 2;
+
+	int score = 0;
+	int hiScore = 0;
+	int hits = 0;
+	GameState state = MENU;
+	bool running = true;
+
+	// 两球独立计分
+	int redScore = 0;
+	int greenScore = 0;
+
+	BeginBatchDraw();
+	while (running)
+	{
+		setbkcolor(BLACK);
+		cleardevice();
+
+		// ===== 消息处理 =====
+		while (peekmessage(&mouse, EM_MOUSE | EM_KEY))
+		{
+			// 鼠标坐标：EasyX 默认原点在左上角，y 向下
+			// 我们翻转了坐标系，所以 y 需要转换
+			mouseX = mouse.x;
+			mouseY = mouse.y;
+
+			if (mouse.message == WM_LBUTTONDOWN)
+			{
+				if (state == MENU || state == GAMEOVER)
+				{
+					// 初始化/重置游戏
+					redBall.reset(100.0f, 300.0f, 1.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f));
+					greenBall.reset(400.0f, 500.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f),
+						-1.0f);
+					redBall.setSpeed(6);
+					greenBall.setSpeed(6);
+					score = 0;
+					hits = 0;
+					redScore = 0;
+					greenScore = 0;
+					state = PLAYING;
+				}
+				else if (state == PLAYING)
+				{
+					state = PAUSED;
+				}
+				else if (state == PAUSED)
+				{
+					state = PLAYING;
+				}
+			}
+			else if (mouse.message == WM_RBUTTONDOWN)
+			{
+				if (state == PLAYING || state == PAUSED || state == MENU || state == GAMEOVER)
+				{
+					running = false;
+					break;
+				}
+			}
+			else if (mouse.message == WM_KEYDOWN)
+			{
+				if (mouse.vkcode == VK_ESCAPE)
+				{
+					running = false;
+					break;
+				}
+				else if (mouse.vkcode == VK_SPACE)
+				{
+					if (state == PLAYING) state = PAUSED;
+					else if (state == PAUSED) state = PLAYING;
+				}
+			}
+		}
+		if (!running) break;
+
+		// ===== 游戏逻辑 =====
+		if (state == PLAYING)
+		{
+			// 挡板的"显示"y 值在翻转坐标系中 = WND_H - mouseY
+			float paddleY = static_cast<float>(WND_H - mouseY);
+			float paddleX = static_cast<float>(mouseX);
+
+			// 限制鼠标挡板在合理范围
+			if (paddleY < PADDLE_HALF) paddleY = static_cast<float>(PADDLE_HALF);
+			if (paddleY > WND_H - PADDLE_HALF) paddleY = static_cast<float>(WND_H - PADDLE_HALF);
+			if (paddleX < PADDLE_HALF) paddleX = static_cast<float>(PADDLE_HALF);
+			if (paddleX > WND_W - PADDLE_HALF) paddleX = static_cast<float>(WND_W - PADDLE_HALF);
+
+			// ===== 红球逻辑（水平左右飞行） =====
+			float rx = redBall.getx();
+			float ry = redBall.gety();
+			float rvx = redBall.getrotationx();
+			float rvy = redBall.getrotationy();
+			float rspeed = static_cast<float>(redBall.getSpeed());
+			int rr = redBall.r;
+
+			// 上/下边界反弹
+			if (ry - rr <= 0) { ry = static_cast<float>(rr); rvy = fabsf(rvy); }
+			if (ry + rr >= WND_H) { ry = static_cast<float>(WND_H - rr); rvy = -fabsf(rvy); }
+
+			// 左墙（AI/静态挡板）反弹
+			if (rx - rr <= WALL_PAD)
+			{
+				rx = static_cast<float>(WALL_PAD + rr);
+				rvx = fabsf(rvx);
+				// 随机偏移 y 方向
+				rvy += -1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f);
+			}
+
+			// 右侧玩家挡板碰撞（在翻转坐标系中挡板 y = paddleY）
+			if (rx + rr >= WND_W - WALL_PAD && rvx > 0)
+			{
+				if (fabsf(ry - paddleY) <= static_cast<float>(PADDLE_HALF))
+				{
+					rx = static_cast<float>(WND_W - WALL_PAD - rr);
+					rvx = -fabsf(rvx);
+					// 根据击中位置改变角度#include "gl.h"
+#define double float
+
+using namespace std;
+
+const int WND_W = 800;
+const int WND_H = 600;
+const int PADDLE_HALF = 50;
+const int WALL_PAD = 10;
+
+enum GameState { MENU, PLAYING, PAUSED, GAMEOVER };
+
+int main()
+{
+	srand(static_cast<unsigned>(time(0)));
+	initgraph(WND_W, WND_H);
+
+R:
+	setorigin(0, WND_H);
+	setaspectratio(1, -1);
+
+	// 游戏对象
+	ball redBall;		// 水平方向球：玩家1用鼠标Y控制右侧挡板
+	ball greenBall;		// 垂直方向球：玩家2用鼠标X控制底部挡板
+	ExMessage mouse;
+	int mouseX = WND_W / 2;
+	int mouseY = WND_H / 2;
+
+	int score = 0;
+	int hiScore = 0;
+	int hits = 0;
+	GameState state = MENU;
+	bool running = true;
+
+	// 两球独立计分
+	int redScore = 0;
+	int greenScore = 0;
+
+	BeginBatchDraw();
+	while (running)
+	{
+		setbkcolor(BLACK);
+		cleardevice();
+
+		// ===== 消息处理 =====
+		while (peekmessage(&mouse, EM_MOUSE | EM_KEY))
+		{
+			// 鼠标坐标：EasyX 默认原点在左上角，y 向下
+			// 我们翻转了坐标系，所以 y 需要转换
+			mouseX = mouse.x;
+			mouseY = mouse.y;
+
+			if (mouse.message == WM_LBUTTONDOWN)
+			{
+				if (state == MENU || state == GAMEOVER)
+				{
+					// 初始化/重置游戏
+					redBall.reset(100.0f, 300.0f, 1.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f));
+					greenBall.reset(400.0f, 500.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f),
+						-1.0f);
+					redBall.setSpeed(6);
+					greenBall.setSpeed(6);
+					score = 0;
+					hits = 0;
+					redScore = 0;
+					greenScore = 0;
+					state = PLAYING;
+				}
+				else if (state == PLAYING)
+				{
+					state = PAUSED;
+				}
+				else if (state == PAUSED)
+				{
+					state = PLAYING;
+				}
+			}
+			else if (mouse.message == WM_RBUTTONDOWN)
+			{
+				if (state == PLAYING || state == PAUSED || state == MENU || state == GAMEOVER)
+				{
+					running = false;
+					break;
+				}
+			}
+			else if (mouse.message == WM_KEYDOWN)
+			{
+				if (mouse.vkcode == VK_ESCAPE)
+				{
+					running = false;
+					break;
+				}
+				else if (mouse.vkcode == VK_SPACE)
+				{
+					if (state == PLAYING) state = PAUSED;
+					else if (state == PAUSED) state = PLAYING;
+				}
+			}
+		}
+		if (!running) break;
+
+		// ===== 游戏逻辑 =====
+		if (state == PLAYING)
+		{
+			// 挡板的"显示"y 值在翻转坐标系中 = WND_H - mouseY
+			float paddleY = static_cast<float>(WND_H - mouseY);
+			float paddleX = static_cast<float>(mouseX);
+
+			// 限制鼠标挡板在合理范围
+			if (paddleY < PADDLE_HALF) paddleY = static_cast<float>(PADDLE_HALF);
+			if (paddleY > WND_H - PADDLE_HALF) paddleY = static_cast<float>(WND_H - PADDLE_HALF);
+			if (paddleX < PADDLE_HALF) paddleX = static_cast<float>(PADDLE_HALF);
+			if (paddleX > WND_W - PADDLE_HALF) paddleX = static_cast<float>(WND_W - PADDLE_HALF);
+
+			// ===== 红球逻辑（水平左右飞行） =====
+			float rx = redBall.getx();
+			float ry = redBall.gety();
+			float rvx = redBall.getrotationx();
+			float rvy = redBall.getrotationy();
+			float rspeed = static_cast<float>(redBall.getSpeed());
+			int rr = redBall.r;
+
+			// 上/下边界反弹
+			if (ry - rr <= 0) { ry = static_cast<float>(rr); rvy = fabsf(rvy); }
+			if (ry + rr >= WND_H) { ry = static_cast<float>(WND_H - rr); rvy = -fabsf(rvy); }
+
+			// 左墙（AI/静态挡板）反弹
+			if (rx - rr <= WALL_PAD)
+			{
+				rx = static_cast<float>(WALL_PAD + rr);
+				rvx = fabsf(rvx);
+				// 随机偏移 y 方向
+				rvy += -1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f);
+			}
+
+			// 右侧玩家挡板碰撞（在翻转坐标系中挡板 y = paddleY）
+			if (rx + rr >= WND_W - WALL_PAD && rvx > 0)
+			{
+				if (fabsf(ry - paddleY) <= static_cast<float>(PADDLE_HALF))
+				{
+					rx = static_cast<float>(WND_W - WALL_PAD - rr);
+					rvx = -fabsf(rvx);
+					// 根据击中位置改变角度：击中越靠上/下，角度越大
+					float hitOffset = (ry - paddle#include "gl.h"
+#define double float
+
+using namespace std;
+
+const int WND_W = 800;
+const int WND_H = 600;
+const int PADDLE_HALF = 50;
+const int WALL_PAD = 10;
+
+enum GameState { MENU, PLAYING, PAUSED, GAMEOVER };
+
+int main()
+{
+	srand(static_cast<unsigned>(time(0)));
+	initgraph(WND_W, WND_H);
+
+R:
+	setorigin(0, WND_H);
+	setaspectratio(1, -1);
+
+	// 游戏对象
+	ball redBall;		// 水平方向球：玩家1用鼠标Y控制右侧挡板
+	ball greenBall;		// 垂直方向球：玩家2用鼠标X控制底部挡板
+	ExMessage mouse;
+	int mouseX = WND_W / 2;
+	int mouseY = WND_H / 2;
+
+	int score = 0;
+	int hiScore = 0;
+	int hits = 0;
+	GameState state = MENU;
+	bool running = true;
+
+	// 两球独立计分
+	int redScore = 0;
+	int greenScore = 0;
+
+	BeginBatchDraw();
+	while (running)
+	{
+		setbkcolor(BLACK);
+		cleardevice();
+
+		// ===== 消息处理 =====
+		while (peekmessage(&mouse, EM_MOUSE | EM_KEY))
+		{
+			// 鼠标坐标：EasyX 默认原点在左上角，y 向下
+			// 我们翻转了坐标系，所以 y 需要转换
+			mouseX = mouse.x;
+			mouseY = mouse.y;
+
+			if (mouse.message == WM_LBUTTONDOWN)
+			{
+				if (state == MENU || state == GAMEOVER)
+				{
+					// 初始化/重置游戏
+					redBall.reset(100.0f, 300.0f, 1.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f));
+					greenBall.reset(400.0f, 500.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f),
+						-1.0f);
+					redBall.setSpeed(6);
+					greenBall.setSpeed(6);
+					score = 0;
+					hits = 0;
+					redScore = 0;
+					greenScore = 0;
+					state = PLAYING;
+				}
+				else if (state == PLAYING)
+				{
+					state = PAUSED;
+				}
+				else if (state == PAUSED)
+				{
+					state = PLAYING;
+				}
+			}
+			else if (mouse.message == WM_RBUTTONDOWN)
+			{
+				if (state == PLAYING || state == PAUSED || state == MENU || state == GAMEOVER)
+				{
+					running = false;
+					break;
+				}
+			}
+			else if (mouse.message == WM_KEYDOWN)
+			{
+				if (mouse.vkcode == VK_ESCAPE)
+				{
+					running = false;
+					break;
+				}
+				else if (mouse.vkcode == VK_SPACE)
+				{
+					if (state == PLAYING) state = PAUSED;
+					else if (state == PAUSED) state = PLAYING;
+				}
+			}
+		}
+		if (!running) break;
+
+		// ===== 游戏逻辑 =====
+		if (state == PLAYING)
+		{
+			// 挡板的"显示"y 值在翻转坐标系中 = WND_H - mouseY
+			float paddleY = static_cast<float>(WND_H - mouseY);
+			float paddleX = static_cast<float>(mouseX);
+
+			// 限制鼠标挡板在合理范围
+			if (paddleY < PADDLE_HALF) paddleY = static_cast<float>(PADDLE_HALF);
+			if (paddleY > WND_H - PADDLE_HALF) paddleY = static_cast<float>(WND_H - PADDLE_HALF);
+			if (paddleX < PADDLE_HALF) paddleX = static_cast<float>(PADDLE_HALF);
+			if (paddleX > WND_W - PADDLE_HALF) paddleX = static_cast<float>(WND_W - PADDLE_HALF);
+
+			// ===== 红球逻辑（水平左右飞行） =====
+			float rx = redBall.getx();
+			float ry = redBall.gety();
+			float rvx = redBall.getrotationx();
+			float rvy = redBall.getrotationy();
+			float rspeed = static_cast<float>(redBall.getSpeed());
+			int rr = redBall.r;
+
+			// 上/下边界反弹
+			if (ry - rr <= 0) { ry = static_cast<float>(rr); rvy = fabsf(rvy); }
+			if (ry + rr >= WND_H) { ry = static_cast<float>(WND_H - rr); rvy = -fabsf(rvy); }
+
+			// 左墙（AI/静态挡板）反弹
+			if (rx - rr <= WALL_PAD)
+			{
+				rx = static_cast<float>(WALL_PAD + rr);
+				rvx = fabsf(rvx);
+				// 随机偏移 y 方向
+				rvy += -1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f);
+			}
+
+			// 右侧玩家挡板碰撞（在翻转坐标系中挡板 y = paddleY）
+			if (rx + rr >= WND_W - WALL_PAD && rvx > 0)
+			{
+				if (fabsf(ry - paddleY) <= static_cast<float>(PADDLE_HALF))
+				{
+					rx = static_cast<float>(WND_W - WALL_PAD - rr);
+					rvx = -fabsf(rvx);
+					// 根据击中位置改变角度：击中越靠上/下，角度越大
+					float hitOffset = (ry - paddleY) / static_cast<float>(PADDLE_HALF); // -1 ~ 1#include "gl.h"
+#define double float
+
+using namespace std;
+
+const int WND_W = 800;
+const int WND_H = 600;
+const int PADDLE_HALF = 50;
+const int WALL_PAD = 10;
+
+enum GameState { MENU, PLAYING, PAUSED, GAMEOVER };
+
+int main()
+{
+	srand(static_cast<unsigned>(time(0)));
+	initgraph(WND_W, WND_H);
+
+R:
+	setorigin(0, WND_H);
+	setaspectratio(1, -1);
+
+	// 游戏对象
+	ball redBall;		// 水平方向球：玩家1用鼠标Y控制右侧挡板
+	ball greenBall;		// 垂直方向球：玩家2用鼠标X控制底部挡板
+	ExMessage mouse;
+	int mouseX = WND_W / 2;
+	int mouseY = WND_H / 2;
+
+	int score = 0;
+	int hiScore = 0;
+	int hits = 0;
+	GameState state = MENU;
+	bool running = true;
+
+	// 两球独立计分
+	int redScore = 0;
+	int greenScore = 0;
+
+	BeginBatchDraw();
+	while (running)
+	{
+		setbkcolor(BLACK);
+		cleardevice();
+
+		// ===== 消息处理 =====
+		while (peekmessage(&mouse, EM_MOUSE | EM_KEY))
+		{
+			// 鼠标坐标：EasyX 默认原点在左上角，y 向下
+			// 我们翻转了坐标系，所以 y 需要转换
+			mouseX = mouse.x;
+			mouseY = mouse.y;
+
+			if (mouse.message == WM_LBUTTONDOWN)
+			{
+				if (state == MENU || state == GAMEOVER)
+				{
+					// 初始化/重置游戏
+					redBall.reset(100.0f, 300.0f, 1.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f));
+					greenBall.reset(400.0f, 500.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f),
+						-1.0f);
+					redBall.setSpeed(6);
+					greenBall.setSpeed(6);
+					score = 0;
+					hits = 0;
+					redScore = 0;
+					greenScore = 0;
+					state = PLAYING;
+				}
+				else if (state == PLAYING)
+				{
+					state = PAUSED;
+				}
+				else if (state == PAUSED)
+				{
+					state = PLAYING;
+				}
+			}
+			else if (mouse.message == WM_RBUTTONDOWN)
+			{
+				if (state == PLAYING || state == PAUSED || state == MENU || state == GAMEOVER)
+				{
+					running = false;
+					break;
+				}
+			}
+			else if (mouse.message == WM_KEYDOWN)
+			{
+				if (mouse.vkcode == VK_ESCAPE)
+				{
+					running = false;
+					break;
+				}
+				else if (mouse.vkcode == VK_SPACE)
+				{
+					if (state == PLAYING) state = PAUSED;
+					else if (state == PAUSED) state = PLAYING;
+				}
+			}
+		}
+		if (!running) break;
+
+		// ===== 游戏逻辑 =====
+		if (state == PLAYING)
+		{
+			// 挡板的"显示"y 值在翻转坐标系中 = WND_H - mouseY
+			float paddleY = static_cast<float>(WND_H - mouseY);
+			float paddleX = static_cast<float>(mouseX);
+
+			// 限制鼠标挡板在合理范围
+			if (paddleY < PADDLE_HALF) paddleY = static_cast<float>(PADDLE_HALF);
+			if (paddleY > WND_H - PADDLE_HALF) paddleY = static_cast<float>(WND_H - PADDLE_HALF);
+			if (paddleX < PADDLE_HALF) paddleX = static_cast<float>(PADDLE_HALF);
+			if (paddleX > WND_W - PADDLE_HALF) paddleX = static_cast<float>(WND_W - PADDLE_HALF);
+
+			// ===== 红球逻辑（水平左右飞行） =====
+			float rx = redBall.getx();
+			float ry = redBall.gety();
+			float rvx = redBall.getrotationx();
+			float rvy = redBall.getrotationy();
+			float rspeed = static_cast<float>(redBall.getSpeed());
+			int rr = redBall.r;
+
+			// 上/下边界反弹
+			if (ry - rr <= 0) { ry = static_cast<float>(rr); rvy = fabsf(rvy); }
+			if (ry + rr >= WND_H) { ry = static_cast<float>(WND_H - rr); rvy = -fabsf(rvy); }
+
+			// 左墙（AI/静态挡板）反弹
+			if (rx - rr <= WALL_PAD)
+			{
+				rx = static_cast<float>(WALL_PAD + rr);
+				rvx = fabsf(rvx);
+				// 随机偏移 y 方向
+				rvy += -1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f);
+			}
+
+			// 右侧玩家挡板碰撞（在翻转坐标系中挡板 y = paddleY）
+			if (rx + rr >= WND_W - WALL_PAD && rvx > 0)
+			{
+				if (fabsf(ry - paddleY) <= static_cast<float>(PADDLE_HALF))
+				{
+					rx = static_cast<float>(WND_W - WALL_PAD - rr);
+					rvx = -fabsf(rvx);
+					// 根据击中位置改变角度：击中越靠上/下，角度越大
+					float hitOffset = (ry - paddleY) / static_cast<float>(PADDLE_HALF); // -1 ~ 1
+					rvy = hitOffset * 2.0f;
+					redScore++;#include "gl.h"
+#define double float
+
+using namespace std;
+
+const int WND_W = 800;
+const int WND_H = 600;
+const int PADDLE_HALF = 50;
+const int WALL_PAD = 10;
+
+enum GameState { MENU, PLAYING, PAUSED, GAMEOVER };
+
+int main()
+{
+	srand(static_cast<unsigned>(time(0)));
+	initgraph(WND_W, WND_H);
+
+R:
+	setorigin(0, WND_H);
+	setaspectratio(1, -1);
+
+	// 游戏对象
+	ball redBall;		// 水平方向球：玩家1用鼠标Y控制右侧挡板
+	ball greenBall;		// 垂直方向球：玩家2用鼠标X控制底部挡板
+	ExMessage mouse;
+	int mouseX = WND_W / 2;
+	int mouseY = WND_H / 2;
+
+	int score = 0;
+	int hiScore = 0;
+	int hits = 0;
+	GameState state = MENU;
+	bool running = true;
+
+	// 两球独立计分
+	int redScore = 0;
+	int greenScore = 0;
+
+	BeginBatchDraw();
+	while (running)
+	{
+		setbkcolor(BLACK);
+		cleardevice();
+
+		// ===== 消息处理 =====
+		while (peekmessage(&mouse, EM_MOUSE | EM_KEY))
+		{
+			// 鼠标坐标：EasyX 默认原点在左上角，y 向下
+			// 我们翻转了坐标系，所以 y 需要转换
+			mouseX = mouse.x;
+			mouseY = mouse.y;
+
+			if (mouse.message == WM_LBUTTONDOWN)
+			{
+				if (state == MENU || state == GAMEOVER)
+				{
+					// 初始化/重置游戏
+					redBall.reset(100.0f, 300.0f, 1.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f));
+					greenBall.reset(400.0f, 500.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f),
+						-1.0f);
+					redBall.setSpeed(6);
+					greenBall.setSpeed(6);
+					score = 0;
+					hits = 0;
+					redScore = 0;
+					greenScore = 0;
+					state = PLAYING;
+				}
+				else if (state == PLAYING)
+				{
+					state = PAUSED;
+				}
+				else if (state == PAUSED)
+				{
+					state = PLAYING;
+				}
+			}
+			else if (mouse.message == WM_RBUTTONDOWN)
+			{
+				if (state == PLAYING || state == PAUSED || state == MENU || state == GAMEOVER)
+				{
+					running = false;
+					break;
+				}
+			}
+			else if (mouse.message == WM_KEYDOWN)
+			{
+				if (mouse.vkcode == VK_ESCAPE)
+				{
+					running = false;
+					break;
+				}
+				else if (mouse.vkcode == VK_SPACE)
+				{
+					if (state == PLAYING) state = PAUSED;
+					else if (state == PAUSED) state = PLAYING;
+				}
+			}
+		}
+		if (!running) break;
+
+		// ===== 游戏逻辑 =====
+		if (state == PLAYING)
+		{
+			// 挡板的"显示"y 值在翻转坐标系中 = WND_H - mouseY
+			float paddleY = static_cast<float>(WND_H - mouseY);
+			float paddleX = static_cast<float>(mouseX);
+
+			// 限制鼠标挡板在合理范围
+			if (paddleY < PADDLE_HALF) paddleY = static_cast<float>(PADDLE_HALF);
+			if (paddleY > WND_H - PADDLE_HALF) paddleY = static_cast<float>(WND_H - PADDLE_HALF);
+			if (paddleX < PADDLE_HALF) paddleX = static_cast<float>(PADDLE_HALF);
+			if (paddleX > WND_W - PADDLE_HALF) paddleX = static_cast<float>(WND_W - PADDLE_HALF);
+
+			// ===== 红球逻辑（水平左右飞行） =====
+			float rx = redBall.getx();
+			float ry = redBall.gety();
+			float rvx = redBall.getrotationx();
+			float rvy = redBall.getrotationy();
+			float rspeed = static_cast<float>(redBall.getSpeed());
+			int rr = redBall.r;
+
+			// 上/下边界反弹
+			if (ry - rr <= 0) { ry = static_cast<float>(rr); rvy = fabsf(rvy); }
+			if (ry + rr >= WND_H) { ry = static_cast<float>(WND_H - rr); rvy = -fabsf(rvy); }
+
+			// 左墙（AI/静态挡板）反弹
+			if (rx - rr <= WALL_PAD)
+			{
+				rx = static_cast<float>(WALL_PAD + rr);
+				rvx = fabsf(rvx);
+				// 随机偏移 y 方向
+				rvy += -1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f);
+			}
+
+			// 右侧玩家挡板碰撞（在翻转坐标系中挡板 y = paddleY）
+			if (rx + rr >= WND_W - WALL_PAD && rvx > 0)
+			{
+				if (fabsf(ry - paddleY) <= static_cast<float>(PADDLE_HALF))
+				{
+					rx = static_cast<float>(WND_W - WALL_PAD - rr);
+					rvx = -fabsf(rvx);
+					// 根据击中位置改变角度：击中越靠上/下，角度越大
+					float hitOffset = (ry - paddleY) / static_cast<float>(PADDLE_HALF); // -1 ~ 1
+					rvy = hitOffset * 2.0f;
+					redScore++;
+					hits++;
+					// 加速
+					if (hits % 3#include "gl.h"
+#define double float
+
+using namespace std;
+
+const int WND_W = 800;
+const int WND_H = 600;
+const int PADDLE_HALF = 50;
+const int WALL_PAD = 10;
+
+enum GameState { MENU, PLAYING, PAUSED, GAMEOVER };
+
+int main()
+{
+	srand(static_cast<unsigned>(time(0)));
+	initgraph(WND_W, WND_H);
+
+R:
+	setorigin(0, WND_H);
+	setaspectratio(1, -1);
+
+	// 游戏对象
+	ball redBall;		// 水平方向球：玩家1用鼠标Y控制右侧挡板
+	ball greenBall;		// 垂直方向球：玩家2用鼠标X控制底部挡板
+	ExMessage mouse;
+	int mouseX = WND_W / 2;
+	int mouseY = WND_H / 2;
+
+	int score = 0;
+	int hiScore = 0;
+	int hits = 0;
+	GameState state = MENU;
+	bool running = true;
+
+	// 两球独立计分
+	int redScore = 0;
+	int greenScore = 0;
+
+	BeginBatchDraw();
+	while (running)
+	{
+		setbkcolor(BLACK);
+		cleardevice();
+
+		// ===== 消息处理 =====
+		while (peekmessage(&mouse, EM_MOUSE | EM_KEY))
+		{
+			// 鼠标坐标：EasyX 默认原点在左上角，y 向下
+			// 我们翻转了坐标系，所以 y 需要转换
+			mouseX = mouse.x;
+			mouseY = mouse.y;
+
+			if (mouse.message == WM_LBUTTONDOWN)
+			{
+				if (state == MENU || state == GAMEOVER)
+				{
+					// 初始化/重置游戏
+					redBall.reset(100.0f, 300.0f, 1.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f));
+					greenBall.reset(400.0f, 500.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f),
+						-1.0f);
+					redBall.setSpeed(6);
+					greenBall.setSpeed(6);
+					score = 0;
+					hits = 0;
+					redScore = 0;
+					greenScore = 0;
+					state = PLAYING;
+				}
+				else if (state == PLAYING)
+				{
+					state = PAUSED;
+				}
+				else if (state == PAUSED)
+				{
+					state = PLAYING;
+				}
+			}
+			else if (mouse.message == WM_RBUTTONDOWN)
+			{
+				if (state == PLAYING || state == PAUSED || state == MENU || state == GAMEOVER)
+				{
+					running = false;
+					break;
+				}
+			}
+			else if (mouse.message == WM_KEYDOWN)
+			{
+				if (mouse.vkcode == VK_ESCAPE)
+				{
+					running = false;
+					break;
+				}
+				else if (mouse.vkcode == VK_SPACE)
+				{
+					if (state == PLAYING) state = PAUSED;
+					else if (state == PAUSED) state = PLAYING;
+				}
+			}
+		}
+		if (!running) break;
+
+		// ===== 游戏逻辑 =====
+		if (state == PLAYING)
+		{
+			// 挡板的"显示"y 值在翻转坐标系中 = WND_H - mouseY
+			float paddleY = static_cast<float>(WND_H - mouseY);
+			float paddleX = static_cast<float>(mouseX);
+
+			// 限制鼠标挡板在合理范围
+			if (paddleY < PADDLE_HALF) paddleY = static_cast<float>(PADDLE_HALF);
+			if (paddleY > WND_H - PADDLE_HALF) paddleY = static_cast<float>(WND_H - PADDLE_HALF);
+			if (paddleX < PADDLE_HALF) paddleX = static_cast<float>(PADDLE_HALF);
+			if (paddleX > WND_W - PADDLE_HALF) paddleX = static_cast<float>(WND_W - PADDLE_HALF);
+
+			// ===== 红球逻辑（水平左右飞行） =====
+			float rx = redBall.getx();
+			float ry = redBall.gety();
+			float rvx = redBall.getrotationx();
+			float rvy = redBall.getrotationy();
+			float rspeed = static_cast<float>(redBall.getSpeed());
+			int rr = redBall.r;
+
+			// 上/下边界反弹
+			if (ry - rr <= 0) { ry = static_cast<float>(rr); rvy = fabsf(rvy); }
+			if (ry + rr >= WND_H) { ry = static_cast<float>(WND_H - rr); rvy = -fabsf(rvy); }
+
+			// 左墙（AI/静态挡板）反弹
+			if (rx - rr <= WALL_PAD)
+			{
+				rx = static_cast<float>(WALL_PAD + rr);
+				rvx = fabsf(rvx);
+				// 随机偏移 y 方向
+				rvy += -1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f);
+			}
+
+			// 右侧玩家挡板碰撞（在翻转坐标系中挡板 y = paddleY）
+			if (rx + rr >= WND_W - WALL_PAD && rvx > 0)
+			{
+				if (fabsf(ry - paddleY) <= static_cast<float>(PADDLE_HALF))
+				{
+					rx = static_cast<float>(WND_W - WALL_PAD - rr);
+					rvx = -fabsf(rvx);
+					// 根据击中位置改变角度：击中越靠上/下，角度越大
+					float hitOffset = (ry - paddleY) / static_cast<float>(PADDLE_HALF); // -1 ~ 1
+					rvy = hitOffset * 2.0f;
+					redScore++;
+					hits++;
+					// 加速
+					if (hits % 3 == 0 && rspeed < 16)
+						redBall.setSpeed(red#include "gl.h"
+#define double float
+
+using namespace std;
+
+const int WND_W = 800;
+const int WND_H = 600;
+const int PADDLE_HALF = 50;
+const int WALL_PAD = 10;
+
+enum GameState { MENU, PLAYING, PAUSED, GAMEOVER };
+
+int main()
+{
+	srand(static_cast<unsigned>(time(0)));
+	initgraph(WND_W, WND_H);
+
+R:
+	setorigin(0, WND_H);
+	setaspectratio(1, -1);
+
+	// 游戏对象
+	ball redBall;		// 水平方向球：玩家1用鼠标Y控制右侧挡板
+	ball greenBall;		// 垂直方向球：玩家2用鼠标X控制底部挡板
+	ExMessage mouse;
+	int mouseX = WND_W / 2;
+	int mouseY = WND_H / 2;
+
+	int score = 0;
+	int hiScore = 0;
+	int hits = 0;
+	GameState state = MENU;
+	bool running = true;
+
+	// 两球独立计分
+	int redScore = 0;
+	int greenScore = 0;
+
+	BeginBatchDraw();
+	while (running)
+	{
+		setbkcolor(BLACK);
+		cleardevice();
+
+		// ===== 消息处理 =====
+		while (peekmessage(&mouse, EM_MOUSE | EM_KEY))
+		{
+			// 鼠标坐标：EasyX 默认原点在左上角，y 向下
+			// 我们翻转了坐标系，所以 y 需要转换
+			mouseX = mouse.x;
+			mouseY = mouse.y;
+
+			if (mouse.message == WM_LBUTTONDOWN)
+			{
+				if (state == MENU || state == GAMEOVER)
+				{
+					// 初始化/重置游戏
+					redBall.reset(100.0f, 300.0f, 1.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f));
+					greenBall.reset(400.0f, 500.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f),
+						-1.0f);
+					redBall.setSpeed(6);
+					greenBall.setSpeed(6);
+					score = 0;
+					hits = 0;
+					redScore = 0;
+					greenScore = 0;
+					state = PLAYING;
+				}
+				else if (state == PLAYING)
+				{
+					state = PAUSED;
+				}
+				else if (state == PAUSED)
+				{
+					state = PLAYING;
+				}
+			}
+			else if (mouse.message == WM_RBUTTONDOWN)
+			{
+				if (state == PLAYING || state == PAUSED || state == MENU || state == GAMEOVER)
+				{
+					running = false;
+					break;
+				}
+			}
+			else if (mouse.message == WM_KEYDOWN)
+			{
+				if (mouse.vkcode == VK_ESCAPE)
+				{
+					running = false;
+					break;
+				}
+				else if (mouse.vkcode == VK_SPACE)
+				{
+					if (state == PLAYING) state = PAUSED;
+					else if (state == PAUSED) state = PLAYING;
+				}
+			}
+		}
+		if (!running) break;
+
+		// ===== 游戏逻辑 =====
+		if (state == PLAYING)
+		{
+			// 挡板的"显示"y 值在翻转坐标系中 = WND_H - mouseY
+			float paddleY = static_cast<float>(WND_H - mouseY);
+			float paddleX = static_cast<float>(mouseX);
+
+			// 限制鼠标挡板在合理范围
+			if (paddleY < PADDLE_HALF) paddleY = static_cast<float>(PADDLE_HALF);
+			if (paddleY > WND_H - PADDLE_HALF) paddleY = static_cast<float>(WND_H - PADDLE_HALF);
+			if (paddleX < PADDLE_HALF) paddleX = static_cast<float>(PADDLE_HALF);
+			if (paddleX > WND_W - PADDLE_HALF) paddleX = static_cast<float>(WND_W - PADDLE_HALF);
+
+			// ===== 红球逻辑（水平左右飞行） =====
+			float rx = redBall.getx();
+			float ry = redBall.gety();
+			float rvx = redBall.getrotationx();
+			float rvy = redBall.getrotationy();
+			float rspeed = static_cast<float>(redBall.getSpeed());
+			int rr = redBall.r;
+
+			// 上/下边界反弹
+			if (ry - rr <= 0) { ry = static_cast<float>(rr); rvy = fabsf(rvy); }
+			if (ry + rr >= WND_H) { ry = static_cast<float>(WND_H - rr); rvy = -fabsf(rvy); }
+
+			// 左墙（AI/静态挡板）反弹
+			if (rx - rr <= WALL_PAD)
+			{
+				rx = static_cast<float>(WALL_PAD + rr);
+				rvx = fabsf(rvx);
+				// 随机偏移 y 方向
+				rvy += -1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f);
+			}
+
+			// 右侧玩家挡板碰撞（在翻转坐标系中挡板 y = paddleY）
+			if (rx + rr >= WND_W - WALL_PAD && rvx > 0)
+			{
+				if (fabsf(ry - paddleY) <= static_cast<float>(PADDLE_HALF))
+				{
+					rx = static_cast<float>(WND_W - WALL_PAD - rr);
+					rvx = -fabsf(rvx);
+					// 根据击中位置改变角度：击中越靠上/下，角度越大
+					float hitOffset = (ry - paddleY) / static_cast<float>(PADDLE_HALF); // -1 ~ 1
+					rvy = hitOffset * 2.0f;
+					redScore++;
+					hits++;
+					// 加速
+					if (hits % 3 == 0 && rspeed < 16)
+						redBall.setSpeed(redBall.getSpeed() + 1);
+				}
+			}
+
+			//#include "gl.h"
+#define double float
+
+using namespace std;
+
+const int WND_W = 800;
+const int WND_H = 600;
+const int PADDLE_HALF = 50;
+const int WALL_PAD = 10;
+
+enum GameState { MENU, PLAYING, PAUSED, GAMEOVER };
+
+int main()
+{
+	srand(static_cast<unsigned>(time(0)));
+	initgraph(WND_W, WND_H);
+
+R:
+	setorigin(0, WND_H);
+	setaspectratio(1, -1);
+
+	// 游戏对象
+	ball redBall;		// 水平方向球：玩家1用鼠标Y控制右侧挡板
+	ball greenBall;		// 垂直方向球：玩家2用鼠标X控制底部挡板
+	ExMessage mouse;
+	int mouseX = WND_W / 2;
+	int mouseY = WND_H / 2;
+
+	int score = 0;
+	int hiScore = 0;
+	int hits = 0;
+	GameState state = MENU;
+	bool running = true;
+
+	// 两球独立计分
+	int redScore = 0;
+	int greenScore = 0;
+
+	BeginBatchDraw();
+	while (running)
+	{
+		setbkcolor(BLACK);
+		cleardevice();
+
+		// ===== 消息处理 =====
+		while (peekmessage(&mouse, EM_MOUSE | EM_KEY))
+		{
+			// 鼠标坐标：EasyX 默认原点在左上角，y 向下
+			// 我们翻转了坐标系，所以 y 需要转换
+			mouseX = mouse.x;
+			mouseY = mouse.y;
+
+			if (mouse.message == WM_LBUTTONDOWN)
+			{
+				if (state == MENU || state == GAMEOVER)
+				{
+					// 初始化/重置游戏
+					redBall.reset(100.0f, 300.0f, 1.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f));
+					greenBall.reset(400.0f, 500.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f),
+						-1.0f);
+					redBall.setSpeed(6);
+					greenBall.setSpeed(6);
+					score = 0;
+					hits = 0;
+					redScore = 0;
+					greenScore = 0;
+					state = PLAYING;
+				}
+				else if (state == PLAYING)
+				{
+					state = PAUSED;
+				}
+				else if (state == PAUSED)
+				{
+					state = PLAYING;
+				}
+			}
+			else if (mouse.message == WM_RBUTTONDOWN)
+			{
+				if (state == PLAYING || state == PAUSED || state == MENU || state == GAMEOVER)
+				{
+					running = false;
+					break;
+				}
+			}
+			else if (mouse.message == WM_KEYDOWN)
+			{
+				if (mouse.vkcode == VK_ESCAPE)
+				{
+					running = false;
+					break;
+				}
+				else if (mouse.vkcode == VK_SPACE)
+				{
+					if (state == PLAYING) state = PAUSED;
+					else if (state == PAUSED) state = PLAYING;
+				}
+			}
+		}
+		if (!running) break;
+
+		// ===== 游戏逻辑 =====
+		if (state == PLAYING)
+		{
+			// 挡板的"显示"y 值在翻转坐标系中 = WND_H - mouseY
+			float paddleY = static_cast<float>(WND_H - mouseY);
+			float paddleX = static_cast<float>(mouseX);
+
+			// 限制鼠标挡板在合理范围
+			if (paddleY < PADDLE_HALF) paddleY = static_cast<float>(PADDLE_HALF);
+			if (paddleY > WND_H - PADDLE_HALF) paddleY = static_cast<float>(WND_H - PADDLE_HALF);
+			if (paddleX < PADDLE_HALF) paddleX = static_cast<float>(PADDLE_HALF);
+			if (paddleX > WND_W - PADDLE_HALF) paddleX = static_cast<float>(WND_W - PADDLE_HALF);
+
+			// ===== 红球逻辑（水平左右飞行） =====
+			float rx = redBall.getx();
+			float ry = redBall.gety();
+			float rvx = redBall.getrotationx();
+			float rvy = redBall.getrotationy();
+			float rspeed = static_cast<float>(redBall.getSpeed());
+			int rr = redBall.r;
+
+			// 上/下边界反弹
+			if (ry - rr <= 0) { ry = static_cast<float>(rr); rvy = fabsf(rvy); }
+			if (ry + rr >= WND_H) { ry = static_cast<float>(WND_H - rr); rvy = -fabsf(rvy); }
+
+			// 左墙（AI/静态挡板）反弹
+			if (rx - rr <= WALL_PAD)
+			{
+				rx = static_cast<float>(WALL_PAD + rr);
+				rvx = fabsf(rvx);
+				// 随机偏移 y 方向
+				rvy += -1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f);
+			}
+
+			// 右侧玩家挡板碰撞（在翻转坐标系中挡板 y = paddleY）
+			if (rx + rr >= WND_W - WALL_PAD && rvx > 0)
+			{
+				if (fabsf(ry - paddleY) <= static_cast<float>(PADDLE_HALF))
+				{
+					rx = static_cast<float>(WND_W - WALL_PAD - rr);
+					rvx = -fabsf(rvx);
+					// 根据击中位置改变角度：击中越靠上/下，角度越大
+					float hitOffset = (ry - paddleY) / static_cast<float>(PADDLE_HALF); // -1 ~ 1
+					rvy = hitOffset * 2.0f;
+					redScore++;
+					hits++;
+					// 加速
+					if (hits % 3 == 0 && rspeed < 16)
+						redBall.setSpeed(redBall.getSpeed() + 1);
+				}
+			}
+
+			// 红球出界（右侧无挡板拦截）
+			if (rx >= WND_W)#include "gl.h"
+#define double float
+
+using namespace std;
+
+const int WND_W = 800;
+const int WND_H = 600;
+const int PADDLE_HALF = 50;
+const int WALL_PAD = 10;
+
+enum GameState { MENU, PLAYING, PAUSED, GAMEOVER };
+
+int main()
+{
+	srand(static_cast<unsigned>(time(0)));
+	initgraph(WND_W, WND_H);
+
+R:
+	setorigin(0, WND_H);
+	setaspectratio(1, -1);
+
+	// 游戏对象
+	ball redBall;		// 水平方向球：玩家1用鼠标Y控制右侧挡板
+	ball greenBall;		// 垂直方向球：玩家2用鼠标X控制底部挡板
+	ExMessage mouse;
+	int mouseX = WND_W / 2;
+	int mouseY = WND_H / 2;
+
+	int score = 0;
+	int hiScore = 0;
+	int hits = 0;
+	GameState state = MENU;
+	bool running = true;
+
+	// 两球独立计分
+	int redScore = 0;
+	int greenScore = 0;
+
+	BeginBatchDraw();
+	while (running)
+	{
+		setbkcolor(BLACK);
+		cleardevice();
+
+		// ===== 消息处理 =====
+		while (peekmessage(&mouse, EM_MOUSE | EM_KEY))
+		{
+			// 鼠标坐标：EasyX 默认原点在左上角，y 向下
+			// 我们翻转了坐标系，所以 y 需要转换
+			mouseX = mouse.x;
+			mouseY = mouse.y;
+
+			if (mouse.message == WM_LBUTTONDOWN)
+			{
+				if (state == MENU || state == GAMEOVER)
+				{
+					// 初始化/重置游戏
+					redBall.reset(100.0f, 300.0f, 1.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f));
+					greenBall.reset(400.0f, 500.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f),
+						-1.0f);
+					redBall.setSpeed(6);
+					greenBall.setSpeed(6);
+					score = 0;
+					hits = 0;
+					redScore = 0;
+					greenScore = 0;
+					state = PLAYING;
+				}
+				else if (state == PLAYING)
+				{
+					state = PAUSED;
+				}
+				else if (state == PAUSED)
+				{
+					state = PLAYING;
+				}
+			}
+			else if (mouse.message == WM_RBUTTONDOWN)
+			{
+				if (state == PLAYING || state == PAUSED || state == MENU || state == GAMEOVER)
+				{
+					running = false;
+					break;
+				}
+			}
+			else if (mouse.message == WM_KEYDOWN)
+			{
+				if (mouse.vkcode == VK_ESCAPE)
+				{
+					running = false;
+					break;
+				}
+				else if (mouse.vkcode == VK_SPACE)
+				{
+					if (state == PLAYING) state = PAUSED;
+					else if (state == PAUSED) state = PLAYING;
+				}
+			}
+		}
+		if (!running) break;
+
+		// ===== 游戏逻辑 =====
+		if (state == PLAYING)
+		{
+			// 挡板的"显示"y 值在翻转坐标系中 = WND_H - mouseY
+			float paddleY = static_cast<float>(WND_H - mouseY);
+			float paddleX = static_cast<float>(mouseX);
+
+			// 限制鼠标挡板在合理范围
+			if (paddleY < PADDLE_HALF) paddleY = static_cast<float>(PADDLE_HALF);
+			if (paddleY > WND_H - PADDLE_HALF) paddleY = static_cast<float>(WND_H - PADDLE_HALF);
+			if (paddleX < PADDLE_HALF) paddleX = static_cast<float>(PADDLE_HALF);
+			if (paddleX > WND_W - PADDLE_HALF) paddleX = static_cast<float>(WND_W - PADDLE_HALF);
+
+			// ===== 红球逻辑（水平左右飞行） =====
+			float rx = redBall.getx();
+			float ry = redBall.gety();
+			float rvx = redBall.getrotationx();
+			float rvy = redBall.getrotationy();
+			float rspeed = static_cast<float>(redBall.getSpeed());
+			int rr = redBall.r;
+
+			// 上/下边界反弹
+			if (ry - rr <= 0) { ry = static_cast<float>(rr); rvy = fabsf(rvy); }
+			if (ry + rr >= WND_H) { ry = static_cast<float>(WND_H - rr); rvy = -fabsf(rvy); }
+
+			// 左墙（AI/静态挡板）反弹
+			if (rx - rr <= WALL_PAD)
+			{
+				rx = static_cast<float>(WALL_PAD + rr);
+				rvx = fabsf(rvx);
+				// 随机偏移 y 方向
+				rvy += -1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f);
+			}
+
+			// 右侧玩家挡板碰撞（在翻转坐标系中挡板 y = paddleY）
+			if (rx + rr >= WND_W - WALL_PAD && rvx > 0)
+			{
+				if (fabsf(ry - paddleY) <= static_cast<float>(PADDLE_HALF))
+				{
+					rx = static_cast<float>(WND_W - WALL_PAD - rr);
+					rvx = -fabsf(rvx);
+					// 根据击中位置改变角度：击中越靠上/下，角度越大
+					float hitOffset = (ry - paddleY) / static_cast<float>(PADDLE_HALF); // -1 ~ 1
+					rvy = hitOffset * 2.0f;
+					redScore++;
+					hits++;
+					// 加速
+					if (hits % 3 == 0 && rspeed < 16)
+						redBall.setSpeed(redBall.getSpeed() + 1);
+				}
+			}
+
+			// 红球出界（右侧无挡板拦截）
+			if (rx >= WND_W)
+			{
+				state = GAMEOVER;
+			}
+
+			//#include "gl.h"
+#define double float
+
+using namespace std;
+
+const int WND_W = 800;
+const int WND_H = 600;
+const int PADDLE_HALF = 50;
+const int WALL_PAD = 10;
+
+enum GameState { MENU, PLAYING, PAUSED, GAMEOVER };
+
+int main()
+{
+	srand(static_cast<unsigned>(time(0)));
+	initgraph(WND_W, WND_H);
+
+R:
+	setorigin(0, WND_H);
+	setaspectratio(1, -1);
+
+	// 游戏对象
+	ball redBall;		// 水平方向球：玩家1用鼠标Y控制右侧挡板
+	ball greenBall;		// 垂直方向球：玩家2用鼠标X控制底部挡板
+	ExMessage mouse;
+	int mouseX = WND_W / 2;
+	int mouseY = WND_H / 2;
+
+	int score = 0;
+	int hiScore = 0;
+	int hits = 0;
+	GameState state = MENU;
+	bool running = true;
+
+	// 两球独立计分
+	int redScore = 0;
+	int greenScore = 0;
+
+	BeginBatchDraw();
+	while (running)
+	{
+		setbkcolor(BLACK);
+		cleardevice();
+
+		// ===== 消息处理 =====
+		while (peekmessage(&mouse, EM_MOUSE | EM_KEY))
+		{
+			// 鼠标坐标：EasyX 默认原点在左上角，y 向下
+			// 我们翻转了坐标系，所以 y 需要转换
+			mouseX = mouse.x;
+			mouseY = mouse.y;
+
+			if (mouse.message == WM_LBUTTONDOWN)
+			{
+				if (state == MENU || state == GAMEOVER)
+				{
+					// 初始化/重置游戏
+					redBall.reset(100.0f, 300.0f, 1.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f));
+					greenBall.reset(400.0f, 500.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f),
+						-1.0f);
+					redBall.setSpeed(6);
+					greenBall.setSpeed(6);
+					score = 0;
+					hits = 0;
+					redScore = 0;
+					greenScore = 0;
+					state = PLAYING;
+				}
+				else if (state == PLAYING)
+				{
+					state = PAUSED;
+				}
+				else if (state == PAUSED)
+				{
+					state = PLAYING;
+				}
+			}
+			else if (mouse.message == WM_RBUTTONDOWN)
+			{
+				if (state == PLAYING || state == PAUSED || state == MENU || state == GAMEOVER)
+				{
+					running = false;
+					break;
+				}
+			}
+			else if (mouse.message == WM_KEYDOWN)
+			{
+				if (mouse.vkcode == VK_ESCAPE)
+				{
+					running = false;
+					break;
+				}
+				else if (mouse.vkcode == VK_SPACE)
+				{
+					if (state == PLAYING) state = PAUSED;
+					else if (state == PAUSED) state = PLAYING;
+				}
+			}
+		}
+		if (!running) break;
+
+		// ===== 游戏逻辑 =====
+		if (state == PLAYING)
+		{
+			// 挡板的"显示"y 值在翻转坐标系中 = WND_H - mouseY
+			float paddleY = static_cast<float>(WND_H - mouseY);
+			float paddleX = static_cast<float>(mouseX);
+
+			// 限制鼠标挡板在合理范围
+			if (paddleY < PADDLE_HALF) paddleY = static_cast<float>(PADDLE_HALF);
+			if (paddleY > WND_H - PADDLE_HALF) paddleY = static_cast<float>(WND_H - PADDLE_HALF);
+			if (paddleX < PADDLE_HALF) paddleX = static_cast<float>(PADDLE_HALF);
+			if (paddleX > WND_W - PADDLE_HALF) paddleX = static_cast<float>(WND_W - PADDLE_HALF);
+
+			// ===== 红球逻辑（水平左右飞行） =====
+			float rx = redBall.getx();
+			float ry = redBall.gety();
+			float rvx = redBall.getrotationx();
+			float rvy = redBall.getrotationy();
+			float rspeed = static_cast<float>(redBall.getSpeed());
+			int rr = redBall.r;
+
+			// 上/下边界反弹
+			if (ry - rr <= 0) { ry = static_cast<float>(rr); rvy = fabsf(rvy); }
+			if (ry + rr >= WND_H) { ry = static_cast<float>(WND_H - rr); rvy = -fabsf(rvy); }
+
+			// 左墙（AI/静态挡板）反弹
+			if (rx - rr <= WALL_PAD)
+			{
+				rx = static_cast<float>(WALL_PAD + rr);
+				rvx = fabsf(rvx);
+				// 随机偏移 y 方向
+				rvy += -1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f);
+			}
+
+			// 右侧玩家挡板碰撞（在翻转坐标系中挡板 y = paddleY）
+			if (rx + rr >= WND_W - WALL_PAD && rvx > 0)
+			{
+				if (fabsf(ry - paddleY) <= static_cast<float>(PADDLE_HALF))
+				{
+					rx = static_cast<float>(WND_W - WALL_PAD - rr);
+					rvx = -fabsf(rvx);
+					// 根据击中位置改变角度：击中越靠上/下，角度越大
+					float hitOffset = (ry - paddleY) / static_cast<float>(PADDLE_HALF); // -1 ~ 1
+					rvy = hitOffset * 2.0f;
+					redScore++;
+					hits++;
+					// 加速
+					if (hits % 3 == 0 && rspeed < 16)
+						redBall.setSpeed(redBall.getSpeed() + 1);
+				}
+			}
+
+			// 红球出界（右侧无挡板拦截）
+			if (rx >= WND_W)
+			{
+				state = GAMEOVER;
+			}
+
+			// 更新红球位置
+			redBall.normalize();
+			rx += rvx * rs#include "gl.h"
+#define double float
+
+using namespace std;
+
+const int WND_W = 800;
+const int WND_H = 600;
+const int PADDLE_HALF = 50;
+const int WALL_PAD = 10;
+
+enum GameState { MENU, PLAYING, PAUSED, GAMEOVER };
+
+int main()
+{
+	srand(static_cast<unsigned>(time(0)));
+	initgraph(WND_W, WND_H);
+
+R:
+	setorigin(0, WND_H);
+	setaspectratio(1, -1);
+
+	// 游戏对象
+	ball redBall;		// 水平方向球：玩家1用鼠标Y控制右侧挡板
+	ball greenBall;		// 垂直方向球：玩家2用鼠标X控制底部挡板
+	ExMessage mouse;
+	int mouseX = WND_W / 2;
+	int mouseY = WND_H / 2;
+
+	int score = 0;
+	int hiScore = 0;
+	int hits = 0;
+	GameState state = MENU;
+	bool running = true;
+
+	// 两球独立计分
+	int redScore = 0;
+	int greenScore = 0;
+
+	BeginBatchDraw();
+	while (running)
+	{
+		setbkcolor(BLACK);
+		cleardevice();
+
+		// ===== 消息处理 =====
+		while (peekmessage(&mouse, EM_MOUSE | EM_KEY))
+		{
+			// 鼠标坐标：EasyX 默认原点在左上角，y 向下
+			// 我们翻转了坐标系，所以 y 需要转换
+			mouseX = mouse.x;
+			mouseY = mouse.y;
+
+			if (mouse.message == WM_LBUTTONDOWN)
+			{
+				if (state == MENU || state == GAMEOVER)
+				{
+					// 初始化/重置游戏
+					redBall.reset(100.0f, 300.0f, 1.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f));
+					greenBall.reset(400.0f, 500.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f),
+						-1.0f);
+					redBall.setSpeed(6);
+					greenBall.setSpeed(6);
+					score = 0;
+					hits = 0;
+					redScore = 0;
+					greenScore = 0;
+					state = PLAYING;
+				}
+				else if (state == PLAYING)
+				{
+					state = PAUSED;
+				}
+				else if (state == PAUSED)
+				{
+					state = PLAYING;
+				}
+			}
+			else if (mouse.message == WM_RBUTTONDOWN)
+			{
+				if (state == PLAYING || state == PAUSED || state == MENU || state == GAMEOVER)
+				{
+					running = false;
+					break;
+				}
+			}
+			else if (mouse.message == WM_KEYDOWN)
+			{
+				if (mouse.vkcode == VK_ESCAPE)
+				{
+					running = false;
+					break;
+				}
+				else if (mouse.vkcode == VK_SPACE)
+				{
+					if (state == PLAYING) state = PAUSED;
+					else if (state == PAUSED) state = PLAYING;
+				}
+			}
+		}
+		if (!running) break;
+
+		// ===== 游戏逻辑 =====
+		if (state == PLAYING)
+		{
+			// 挡板的"显示"y 值在翻转坐标系中 = WND_H - mouseY
+			float paddleY = static_cast<float>(WND_H - mouseY);
+			float paddleX = static_cast<float>(mouseX);
+
+			// 限制鼠标挡板在合理范围
+			if (paddleY < PADDLE_HALF) paddleY = static_cast<float>(PADDLE_HALF);
+			if (paddleY > WND_H - PADDLE_HALF) paddleY = static_cast<float>(WND_H - PADDLE_HALF);
+			if (paddleX < PADDLE_HALF) paddleX = static_cast<float>(PADDLE_HALF);
+			if (paddleX > WND_W - PADDLE_HALF) paddleX = static_cast<float>(WND_W - PADDLE_HALF);
+
+			// ===== 红球逻辑（水平左右飞行） =====
+			float rx = redBall.getx();
+			float ry = redBall.gety();
+			float rvx = redBall.getrotationx();
+			float rvy = redBall.getrotationy();
+			float rspeed = static_cast<float>(redBall.getSpeed());
+			int rr = redBall.r;
+
+			// 上/下边界反弹
+			if (ry - rr <= 0) { ry = static_cast<float>(rr); rvy = fabsf(rvy); }
+			if (ry + rr >= WND_H) { ry = static_cast<float>(WND_H - rr); rvy = -fabsf(rvy); }
+
+			// 左墙（AI/静态挡板）反弹
+			if (rx - rr <= WALL_PAD)
+			{
+				rx = static_cast<float>(WALL_PAD + rr);
+				rvx = fabsf(rvx);
+				// 随机偏移 y 方向
+				rvy += -1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f);
+			}
+
+			// 右侧玩家挡板碰撞（在翻转坐标系中挡板 y = paddleY）
+			if (rx + rr >= WND_W - WALL_PAD && rvx > 0)
+			{
+				if (fabsf(ry - paddleY) <= static_cast<float>(PADDLE_HALF))
+				{
+					rx = static_cast<float>(WND_W - WALL_PAD - rr);
+					rvx = -fabsf(rvx);
+					// 根据击中位置改变角度：击中越靠上/下，角度越大
+					float hitOffset = (ry - paddleY) / static_cast<float>(PADDLE_HALF); // -1 ~ 1
+					rvy = hitOffset * 2.0f;
+					redScore++;
+					hits++;
+					// 加速
+					if (hits % 3 == 0 && rspeed < 16)
+						redBall.setSpeed(redBall.getSpeed() + 1);
+				}
+			}
+
+			// 红球出界（右侧无挡板拦截）
+			if (rx >= WND_W)
+			{
+				state = GAMEOVER;
+			}
+
+			// 更新红球位置
+			redBall.normalize();
+			rx += rvx * rspeed;
+			ry += rvy * rspeed;
+			redBall.setx#include "gl.h"
+#define double float
+
+using namespace std;
+
+const int WND_W = 800;
+const int WND_H = 600;
+const int PADDLE_HALF = 50;
+const int WALL_PAD = 10;
+
+enum GameState { MENU, PLAYING, PAUSED, GAMEOVER };
+
+int main()
+{
+	srand(static_cast<unsigned>(time(0)));
+	initgraph(WND_W, WND_H);
+
+R:
+	setorigin(0, WND_H);
+	setaspectratio(1, -1);
+
+	// 游戏对象
+	ball redBall;		// 水平方向球：玩家1用鼠标Y控制右侧挡板
+	ball greenBall;		// 垂直方向球：玩家2用鼠标X控制底部挡板
+	ExMessage mouse;
+	int mouseX = WND_W / 2;
+	int mouseY = WND_H / 2;
+
+	int score = 0;
+	int hiScore = 0;
+	int hits = 0;
+	GameState state = MENU;
+	bool running = true;
+
+	// 两球独立计分
+	int redScore = 0;
+	int greenScore = 0;
+
+	BeginBatchDraw();
+	while (running)
+	{
+		setbkcolor(BLACK);
+		cleardevice();
+
+		// ===== 消息处理 =====
+		while (peekmessage(&mouse, EM_MOUSE | EM_KEY))
+		{
+			// 鼠标坐标：EasyX 默认原点在左上角，y 向下
+			// 我们翻转了坐标系，所以 y 需要转换
+			mouseX = mouse.x;
+			mouseY = mouse.y;
+
+			if (mouse.message == WM_LBUTTONDOWN)
+			{
+				if (state == MENU || state == GAMEOVER)
+				{
+					// 初始化/重置游戏
+					redBall.reset(100.0f, 300.0f, 1.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f));
+					greenBall.reset(400.0f, 500.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f),
+						-1.0f);
+					redBall.setSpeed(6);
+					greenBall.setSpeed(6);
+					score = 0;
+					hits = 0;
+					redScore = 0;
+					greenScore = 0;
+					state = PLAYING;
+				}
+				else if (state == PLAYING)
+				{
+					state = PAUSED;
+				}
+				else if (state == PAUSED)
+				{
+					state = PLAYING;
+				}
+			}
+			else if (mouse.message == WM_RBUTTONDOWN)
+			{
+				if (state == PLAYING || state == PAUSED || state == MENU || state == GAMEOVER)
+				{
+					running = false;
+					break;
+				}
+			}
+			else if (mouse.message == WM_KEYDOWN)
+			{
+				if (mouse.vkcode == VK_ESCAPE)
+				{
+					running = false;
+					break;
+				}
+				else if (mouse.vkcode == VK_SPACE)
+				{
+					if (state == PLAYING) state = PAUSED;
+					else if (state == PAUSED) state = PLAYING;
+				}
+			}
+		}
+		if (!running) break;
+
+		// ===== 游戏逻辑 =====
+		if (state == PLAYING)
+		{
+			// 挡板的"显示"y 值在翻转坐标系中 = WND_H - mouseY
+			float paddleY = static_cast<float>(WND_H - mouseY);
+			float paddleX = static_cast<float>(mouseX);
+
+			// 限制鼠标挡板在合理范围
+			if (paddleY < PADDLE_HALF) paddleY = static_cast<float>(PADDLE_HALF);
+			if (paddleY > WND_H - PADDLE_HALF) paddleY = static_cast<float>(WND_H - PADDLE_HALF);
+			if (paddleX < PADDLE_HALF) paddleX = static_cast<float>(PADDLE_HALF);
+			if (paddleX > WND_W - PADDLE_HALF) paddleX = static_cast<float>(WND_W - PADDLE_HALF);
+
+			// ===== 红球逻辑（水平左右飞行） =====
+			float rx = redBall.getx();
+			float ry = redBall.gety();
+			float rvx = redBall.getrotationx();
+			float rvy = redBall.getrotationy();
+			float rspeed = static_cast<float>(redBall.getSpeed());
+			int rr = redBall.r;
+
+			// 上/下边界反弹
+			if (ry - rr <= 0) { ry = static_cast<float>(rr); rvy = fabsf(rvy); }
+			if (ry + rr >= WND_H) { ry = static_cast<float>(WND_H - rr); rvy = -fabsf(rvy); }
+
+			// 左墙（AI/静态挡板）反弹
+			if (rx - rr <= WALL_PAD)
+			{
+				rx = static_cast<float>(WALL_PAD + rr);
+				rvx = fabsf(rvx);
+				// 随机偏移 y 方向
+				rvy += -1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f);
+			}
+
+			// 右侧玩家挡板碰撞（在翻转坐标系中挡板 y = paddleY）
+			if (rx + rr >= WND_W - WALL_PAD && rvx > 0)
+			{
+				if (fabsf(ry - paddleY) <= static_cast<float>(PADDLE_HALF))
+				{
+					rx = static_cast<float>(WND_W - WALL_PAD - rr);
+					rvx = -fabsf(rvx);
+					// 根据击中位置改变角度：击中越靠上/下，角度越大
+					float hitOffset = (ry - paddleY) / static_cast<float>(PADDLE_HALF); // -1 ~ 1
+					rvy = hitOffset * 2.0f;
+					redScore++;
+					hits++;
+					// 加速
+					if (hits % 3 == 0 && rspeed < 16)
+						redBall.setSpeed(redBall.getSpeed() + 1);
+				}
+			}
+
+			// 红球出界（右侧无挡板拦截）
+			if (rx >= WND_W)
+			{
+				state = GAMEOVER;
+			}
+
+			// 更新红球位置
+			redBall.normalize();
+			rx += rvx * rspeed;
+			ry += rvy * rspeed;
+			redBall.setx(rx);
+			redBall.sety(ry);
+			redBall.setrotation#include "gl.h"
+#define double float
+
+using namespace std;
+
+const int WND_W = 800;
+const int WND_H = 600;
+const int PADDLE_HALF = 50;
+const int WALL_PAD = 10;
+
+enum GameState { MENU, PLAYING, PAUSED, GAMEOVER };
+
+int main()
+{
+	srand(static_cast<unsigned>(time(0)));
+	initgraph(WND_W, WND_H);
+
+R:
+	setorigin(0, WND_H);
+	setaspectratio(1, -1);
+
+	// 游戏对象
+	ball redBall;		// 水平方向球：玩家1用鼠标Y控制右侧挡板
+	ball greenBall;		// 垂直方向球：玩家2用鼠标X控制底部挡板
+	ExMessage mouse;
+	int mouseX = WND_W / 2;
+	int mouseY = WND_H / 2;
+
+	int score = 0;
+	int hiScore = 0;
+	int hits = 0;
+	GameState state = MENU;
+	bool running = true;
+
+	// 两球独立计分
+	int redScore = 0;
+	int greenScore = 0;
+
+	BeginBatchDraw();
+	while (running)
+	{
+		setbkcolor(BLACK);
+		cleardevice();
+
+		// ===== 消息处理 =====
+		while (peekmessage(&mouse, EM_MOUSE | EM_KEY))
+		{
+			// 鼠标坐标：EasyX 默认原点在左上角，y 向下
+			// 我们翻转了坐标系，所以 y 需要转换
+			mouseX = mouse.x;
+			mouseY = mouse.y;
+
+			if (mouse.message == WM_LBUTTONDOWN)
+			{
+				if (state == MENU || state == GAMEOVER)
+				{
+					// 初始化/重置游戏
+					redBall.reset(100.0f, 300.0f, 1.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f));
+					greenBall.reset(400.0f, 500.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f),
+						-1.0f);
+					redBall.setSpeed(6);
+					greenBall.setSpeed(6);
+					score = 0;
+					hits = 0;
+					redScore = 0;
+					greenScore = 0;
+					state = PLAYING;
+				}
+				else if (state == PLAYING)
+				{
+					state = PAUSED;
+				}
+				else if (state == PAUSED)
+				{
+					state = PLAYING;
+				}
+			}
+			else if (mouse.message == WM_RBUTTONDOWN)
+			{
+				if (state == PLAYING || state == PAUSED || state == MENU || state == GAMEOVER)
+				{
+					running = false;
+					break;
+				}
+			}
+			else if (mouse.message == WM_KEYDOWN)
+			{
+				if (mouse.vkcode == VK_ESCAPE)
+				{
+					running = false;
+					break;
+				}
+				else if (mouse.vkcode == VK_SPACE)
+				{
+					if (state == PLAYING) state = PAUSED;
+					else if (state == PAUSED) state = PLAYING;
+				}
+			}
+		}
+		if (!running) break;
+
+		// ===== 游戏逻辑 =====
+		if (state == PLAYING)
+		{
+			// 挡板的"显示"y 值在翻转坐标系中 = WND_H - mouseY
+			float paddleY = static_cast<float>(WND_H - mouseY);
+			float paddleX = static_cast<float>(mouseX);
+
+			// 限制鼠标挡板在合理范围
+			if (paddleY < PADDLE_HALF) paddleY = static_cast<float>(PADDLE_HALF);
+			if (paddleY > WND_H - PADDLE_HALF) paddleY = static_cast<float>(WND_H - PADDLE_HALF);
+			if (paddleX < PADDLE_HALF) paddleX = static_cast<float>(PADDLE_HALF);
+			if (paddleX > WND_W - PADDLE_HALF) paddleX = static_cast<float>(WND_W - PADDLE_HALF);
+
+			// ===== 红球逻辑（水平左右飞行） =====
+			float rx = redBall.getx();
+			float ry = redBall.gety();
+			float rvx = redBall.getrotationx();
+			float rvy = redBall.getrotationy();
+			float rspeed = static_cast<float>(redBall.getSpeed());
+			int rr = redBall.r;
+
+			// 上/下边界反弹
+			if (ry - rr <= 0) { ry = static_cast<float>(rr); rvy = fabsf(rvy); }
+			if (ry + rr >= WND_H) { ry = static_cast<float>(WND_H - rr); rvy = -fabsf(rvy); }
+
+			// 左墙（AI/静态挡板）反弹
+			if (rx - rr <= WALL_PAD)
+			{
+				rx = static_cast<float>(WALL_PAD + rr);
+				rvx = fabsf(rvx);
+				// 随机偏移 y 方向
+				rvy += -1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f);
+			}
+
+			// 右侧玩家挡板碰撞（在翻转坐标系中挡板 y = paddleY）
+			if (rx + rr >= WND_W - WALL_PAD && rvx > 0)
+			{
+				if (fabsf(ry - paddleY) <= static_cast<float>(PADDLE_HALF))
+				{
+					rx = static_cast<float>(WND_W - WALL_PAD - rr);
+					rvx = -fabsf(rvx);
+					// 根据击中位置改变角度：击中越靠上/下，角度越大
+					float hitOffset = (ry - paddleY) / static_cast<float>(PADDLE_HALF); // -1 ~ 1
+					rvy = hitOffset * 2.0f;
+					redScore++;
+					hits++;
+					// 加速
+					if (hits % 3 == 0 && rspeed < 16)
+						redBall.setSpeed(redBall.getSpeed() + 1);
+				}
+			}
+
+			// 红球出界（右侧无挡板拦截）
+			if (rx >= WND_W)
+			{
+				state = GAMEOVER;
+			}
+
+			// 更新红球位置
+			redBall.normalize();
+			rx += rvx * rspeed;
+			ry += rvy * rspeed;
+			redBall.setx(rx);
+			redBall.sety(ry);
+			redBall.setrotationx(rvx);
+			redBall.setrotationy(rvy);
+
+			// =====#include "gl.h"
+#define double float
+
+using namespace std;
+
+const int WND_W = 800;
+const int WND_H = 600;
+const int PADDLE_HALF = 50;
+const int WALL_PAD = 10;
+
+enum GameState { MENU, PLAYING, PAUSED, GAMEOVER };
+
+int main()
+{
+	srand(static_cast<unsigned>(time(0)));
+	initgraph(WND_W, WND_H);
+
+R:
+	setorigin(0, WND_H);
+	setaspectratio(1, -1);
+
+	// 游戏对象
+	ball redBall;		// 水平方向球：玩家1用鼠标Y控制右侧挡板
+	ball greenBall;		// 垂直方向球：玩家2用鼠标X控制底部挡板
+	ExMessage mouse;
+	int mouseX = WND_W / 2;
+	int mouseY = WND_H / 2;
+
+	int score = 0;
+	int hiScore = 0;
+	int hits = 0;
+	GameState state = MENU;
+	bool running = true;
+
+	// 两球独立计分
+	int redScore = 0;
+	int greenScore = 0;
+
+	BeginBatchDraw();
+	while (running)
+	{
+		setbkcolor(BLACK);
+		cleardevice();
+
+		// ===== 消息处理 =====
+		while (peekmessage(&mouse, EM_MOUSE | EM_KEY))
+		{
+			// 鼠标坐标：EasyX 默认原点在左上角，y 向下
+			// 我们翻转了坐标系，所以 y 需要转换
+			mouseX = mouse.x;
+			mouseY = mouse.y;
+
+			if (mouse.message == WM_LBUTTONDOWN)
+			{
+				if (state == MENU || state == GAMEOVER)
+				{
+					// 初始化/重置游戏
+					redBall.reset(100.0f, 300.0f, 1.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f));
+					greenBall.reset(400.0f, 500.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f),
+						-1.0f);
+					redBall.setSpeed(6);
+					greenBall.setSpeed(6);
+					score = 0;
+					hits = 0;
+					redScore = 0;
+					greenScore = 0;
+					state = PLAYING;
+				}
+				else if (state == PLAYING)
+				{
+					state = PAUSED;
+				}
+				else if (state == PAUSED)
+				{
+					state = PLAYING;
+				}
+			}
+			else if (mouse.message == WM_RBUTTONDOWN)
+			{
+				if (state == PLAYING || state == PAUSED || state == MENU || state == GAMEOVER)
+				{
+					running = false;
+					break;
+				}
+			}
+			else if (mouse.message == WM_KEYDOWN)
+			{
+				if (mouse.vkcode == VK_ESCAPE)
+				{
+					running = false;
+					break;
+				}
+				else if (mouse.vkcode == VK_SPACE)
+				{
+					if (state == PLAYING) state = PAUSED;
+					else if (state == PAUSED) state = PLAYING;
+				}
+			}
+		}
+		if (!running) break;
+
+		// ===== 游戏逻辑 =====
+		if (state == PLAYING)
+		{
+			// 挡板的"显示"y 值在翻转坐标系中 = WND_H - mouseY
+			float paddleY = static_cast<float>(WND_H - mouseY);
+			float paddleX = static_cast<float>(mouseX);
+
+			// 限制鼠标挡板在合理范围
+			if (paddleY < PADDLE_HALF) paddleY = static_cast<float>(PADDLE_HALF);
+			if (paddleY > WND_H - PADDLE_HALF) paddleY = static_cast<float>(WND_H - PADDLE_HALF);
+			if (paddleX < PADDLE_HALF) paddleX = static_cast<float>(PADDLE_HALF);
+			if (paddleX > WND_W - PADDLE_HALF) paddleX = static_cast<float>(WND_W - PADDLE_HALF);
+
+			// ===== 红球逻辑（水平左右飞行） =====
+			float rx = redBall.getx();
+			float ry = redBall.gety();
+			float rvx = redBall.getrotationx();
+			float rvy = redBall.getrotationy();
+			float rspeed = static_cast<float>(redBall.getSpeed());
+			int rr = redBall.r;
+
+			// 上/下边界反弹
+			if (ry - rr <= 0) { ry = static_cast<float>(rr); rvy = fabsf(rvy); }
+			if (ry + rr >= WND_H) { ry = static_cast<float>(WND_H - rr); rvy = -fabsf(rvy); }
+
+			// 左墙（AI/静态挡板）反弹
+			if (rx - rr <= WALL_PAD)
+			{
+				rx = static_cast<float>(WALL_PAD + rr);
+				rvx = fabsf(rvx);
+				// 随机偏移 y 方向
+				rvy += -1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f);
+			}
+
+			// 右侧玩家挡板碰撞（在翻转坐标系中挡板 y = paddleY）
+			if (rx + rr >= WND_W - WALL_PAD && rvx > 0)
+			{
+				if (fabsf(ry - paddleY) <= static_cast<float>(PADDLE_HALF))
+				{
+					rx = static_cast<float>(WND_W - WALL_PAD - rr);
+					rvx = -fabsf(rvx);
+					// 根据击中位置改变角度：击中越靠上/下，角度越大
+					float hitOffset = (ry - paddleY) / static_cast<float>(PADDLE_HALF); // -1 ~ 1
+					rvy = hitOffset * 2.0f;
+					redScore++;
+					hits++;
+					// 加速
+					if (hits % 3 == 0 && rspeed < 16)
+						redBall.setSpeed(redBall.getSpeed() + 1);
+				}
+			}
+
+			// 红球出界（右侧无挡板拦截）
+			if (rx >= WND_W)
+			{
+				state = GAMEOVER;
+			}
+
+			// 更新红球位置
+			redBall.normalize();
+			rx += rvx * rspeed;
+			ry += rvy * rspeed;
+			redBall.setx(rx);
+			redBall.sety(ry);
+			redBall.setrotationx(rvx);
+			redBall.setrotationy(rvy);
+
+			// ===== 绿球逻辑（垂直上下飞行） =====
+			float gx = greenBall.getx#include "gl.h"
+#define double float
+
+using namespace std;
+
+const int WND_W = 800;
+const int WND_H = 600;
+const int PADDLE_HALF = 50;
+const int WALL_PAD = 10;
+
+enum GameState { MENU, PLAYING, PAUSED, GAMEOVER };
+
+int main()
+{
+	srand(static_cast<unsigned>(time(0)));
+	initgraph(WND_W, WND_H);
+
+R:
+	setorigin(0, WND_H);
+	setaspectratio(1, -1);
+
+	// 游戏对象
+	ball redBall;		// 水平方向球：玩家1用鼠标Y控制右侧挡板
+	ball greenBall;		// 垂直方向球：玩家2用鼠标X控制底部挡板
+	ExMessage mouse;
+	int mouseX = WND_W / 2;
+	int mouseY = WND_H / 2;
+
+	int score = 0;
+	int hiScore = 0;
+	int hits = 0;
+	GameState state = MENU;
+	bool running = true;
+
+	// 两球独立计分
+	int redScore = 0;
+	int greenScore = 0;
+
+	BeginBatchDraw();
+	while (running)
+	{
+		setbkcolor(BLACK);
+		cleardevice();
+
+		// ===== 消息处理 =====
+		while (peekmessage(&mouse, EM_MOUSE | EM_KEY))
+		{
+			// 鼠标坐标：EasyX 默认原点在左上角，y 向下
+			// 我们翻转了坐标系，所以 y 需要转换
+			mouseX = mouse.x;
+			mouseY = mouse.y;
+
+			if (mouse.message == WM_LBUTTONDOWN)
+			{
+				if (state == MENU || state == GAMEOVER)
+				{
+					// 初始化/重置游戏
+					redBall.reset(100.0f, 300.0f, 1.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f));
+					greenBall.reset(400.0f, 500.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f),
+						-1.0f);
+					redBall.setSpeed(6);
+					greenBall.setSpeed(6);
+					score = 0;
+					hits = 0;
+					redScore = 0;
+					greenScore = 0;
+					state = PLAYING;
+				}
+				else if (state == PLAYING)
+				{
+					state = PAUSED;
+				}
+				else if (state == PAUSED)
+				{
+					state = PLAYING;
+				}
+			}
+			else if (mouse.message == WM_RBUTTONDOWN)
+			{
+				if (state == PLAYING || state == PAUSED || state == MENU || state == GAMEOVER)
+				{
+					running = false;
+					break;
+				}
+			}
+			else if (mouse.message == WM_KEYDOWN)
+			{
+				if (mouse.vkcode == VK_ESCAPE)
+				{
+					running = false;
+					break;
+				}
+				else if (mouse.vkcode == VK_SPACE)
+				{
+					if (state == PLAYING) state = PAUSED;
+					else if (state == PAUSED) state = PLAYING;
+				}
+			}
+		}
+		if (!running) break;
+
+		// ===== 游戏逻辑 =====
+		if (state == PLAYING)
+		{
+			// 挡板的"显示"y 值在翻转坐标系中 = WND_H - mouseY
+			float paddleY = static_cast<float>(WND_H - mouseY);
+			float paddleX = static_cast<float>(mouseX);
+
+			// 限制鼠标挡板在合理范围
+			if (paddleY < PADDLE_HALF) paddleY = static_cast<float>(PADDLE_HALF);
+			if (paddleY > WND_H - PADDLE_HALF) paddleY = static_cast<float>(WND_H - PADDLE_HALF);
+			if (paddleX < PADDLE_HALF) paddleX = static_cast<float>(PADDLE_HALF);
+			if (paddleX > WND_W - PADDLE_HALF) paddleX = static_cast<float>(WND_W - PADDLE_HALF);
+
+			// ===== 红球逻辑（水平左右飞行） =====
+			float rx = redBall.getx();
+			float ry = redBall.gety();
+			float rvx = redBall.getrotationx();
+			float rvy = redBall.getrotationy();
+			float rspeed = static_cast<float>(redBall.getSpeed());
+			int rr = redBall.r;
+
+			// 上/下边界反弹
+			if (ry - rr <= 0) { ry = static_cast<float>(rr); rvy = fabsf(rvy); }
+			if (ry + rr >= WND_H) { ry = static_cast<float>(WND_H - rr); rvy = -fabsf(rvy); }
+
+			// 左墙（AI/静态挡板）反弹
+			if (rx - rr <= WALL_PAD)
+			{
+				rx = static_cast<float>(WALL_PAD + rr);
+				rvx = fabsf(rvx);
+				// 随机偏移 y 方向
+				rvy += -1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f);
+			}
+
+			// 右侧玩家挡板碰撞（在翻转坐标系中挡板 y = paddleY）
+			if (rx + rr >= WND_W - WALL_PAD && rvx > 0)
+			{
+				if (fabsf(ry - paddleY) <= static_cast<float>(PADDLE_HALF))
+				{
+					rx = static_cast<float>(WND_W - WALL_PAD - rr);
+					rvx = -fabsf(rvx);
+					// 根据击中位置改变角度：击中越靠上/下，角度越大
+					float hitOffset = (ry - paddleY) / static_cast<float>(PADDLE_HALF); // -1 ~ 1
+					rvy = hitOffset * 2.0f;
+					redScore++;
+					hits++;
+					// 加速
+					if (hits % 3 == 0 && rspeed < 16)
+						redBall.setSpeed(redBall.getSpeed() + 1);
+				}
+			}
+
+			// 红球出界（右侧无挡板拦截）
+			if (rx >= WND_W)
+			{
+				state = GAMEOVER;
+			}
+
+			// 更新红球位置
+			redBall.normalize();
+			rx += rvx * rspeed;
+			ry += rvy * rspeed;
+			redBall.setx(rx);
+			redBall.sety(ry);
+			redBall.setrotationx(rvx);
+			redBall.setrotationy(rvy);
+
+			// ===== 绿球逻辑（垂直上下飞行） =====
+			float gx = greenBall.getx();
+			float gy = greenBall.gety();
+			float gvx = greenBall.get#include "gl.h"
+#define double float
+
+using namespace std;
+
+const int WND_W = 800;
+const int WND_H = 600;
+const int PADDLE_HALF = 50;
+const int WALL_PAD = 10;
+
+enum GameState { MENU, PLAYING, PAUSED, GAMEOVER };
+
+int main()
+{
+	srand(static_cast<unsigned>(time(0)));
+	initgraph(WND_W, WND_H);
+
+R:
+	setorigin(0, WND_H);
+	setaspectratio(1, -1);
+
+	// 游戏对象
+	ball redBall;		// 水平方向球：玩家1用鼠标Y控制右侧挡板
+	ball greenBall;		// 垂直方向球：玩家2用鼠标X控制底部挡板
+	ExMessage mouse;
+	int mouseX = WND_W / 2;
+	int mouseY = WND_H / 2;
+
+	int score = 0;
+	int hiScore = 0;
+	int hits = 0;
+	GameState state = MENU;
+	bool running = true;
+
+	// 两球独立计分
+	int redScore = 0;
+	int greenScore = 0;
+
+	BeginBatchDraw();
+	while (running)
+	{
+		setbkcolor(BLACK);
+		cleardevice();
+
+		// ===== 消息处理 =====
+		while (peekmessage(&mouse, EM_MOUSE | EM_KEY))
+		{
+			// 鼠标坐标：EasyX 默认原点在左上角，y 向下
+			// 我们翻转了坐标系，所以 y 需要转换
+			mouseX = mouse.x;
+			mouseY = mouse.y;
+
+			if (mouse.message == WM_LBUTTONDOWN)
+			{
+				if (state == MENU || state == GAMEOVER)
+				{
+					// 初始化/重置游戏
+					redBall.reset(100.0f, 300.0f, 1.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f));
+					greenBall.reset(400.0f, 500.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f),
+						-1.0f);
+					redBall.setSpeed(6);
+					greenBall.setSpeed(6);
+					score = 0;
+					hits = 0;
+					redScore = 0;
+					greenScore = 0;
+					state = PLAYING;
+				}
+				else if (state == PLAYING)
+				{
+					state = PAUSED;
+				}
+				else if (state == PAUSED)
+				{
+					state = PLAYING;
+				}
+			}
+			else if (mouse.message == WM_RBUTTONDOWN)
+			{
+				if (state == PLAYING || state == PAUSED || state == MENU || state == GAMEOVER)
+				{
+					running = false;
+					break;
+				}
+			}
+			else if (mouse.message == WM_KEYDOWN)
+			{
+				if (mouse.vkcode == VK_ESCAPE)
+				{
+					running = false;
+					break;
+				}
+				else if (mouse.vkcode == VK_SPACE)
+				{
+					if (state == PLAYING) state = PAUSED;
+					else if (state == PAUSED) state = PLAYING;
+				}
+			}
+		}
+		if (!running) break;
+
+		// ===== 游戏逻辑 =====
+		if (state == PLAYING)
+		{
+			// 挡板的"显示"y 值在翻转坐标系中 = WND_H - mouseY
+			float paddleY = static_cast<float>(WND_H - mouseY);
+			float paddleX = static_cast<float>(mouseX);
+
+			// 限制鼠标挡板在合理范围
+			if (paddleY < PADDLE_HALF) paddleY = static_cast<float>(PADDLE_HALF);
+			if (paddleY > WND_H - PADDLE_HALF) paddleY = static_cast<float>(WND_H - PADDLE_HALF);
+			if (paddleX < PADDLE_HALF) paddleX = static_cast<float>(PADDLE_HALF);
+			if (paddleX > WND_W - PADDLE_HALF) paddleX = static_cast<float>(WND_W - PADDLE_HALF);
+
+			// ===== 红球逻辑（水平左右飞行） =====
+			float rx = redBall.getx();
+			float ry = redBall.gety();
+			float rvx = redBall.getrotationx();
+			float rvy = redBall.getrotationy();
+			float rspeed = static_cast<float>(redBall.getSpeed());
+			int rr = redBall.r;
+
+			// 上/下边界反弹
+			if (ry - rr <= 0) { ry = static_cast<float>(rr); rvy = fabsf(rvy); }
+			if (ry + rr >= WND_H) { ry = static_cast<float>(WND_H - rr); rvy = -fabsf(rvy); }
+
+			// 左墙（AI/静态挡板）反弹
+			if (rx - rr <= WALL_PAD)
+			{
+				rx = static_cast<float>(WALL_PAD + rr);
+				rvx = fabsf(rvx);
+				// 随机偏移 y 方向
+				rvy += -1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f);
+			}
+
+			// 右侧玩家挡板碰撞（在翻转坐标系中挡板 y = paddleY）
+			if (rx + rr >= WND_W - WALL_PAD && rvx > 0)
+			{
+				if (fabsf(ry - paddleY) <= static_cast<float>(PADDLE_HALF))
+				{
+					rx = static_cast<float>(WND_W - WALL_PAD - rr);
+					rvx = -fabsf(rvx);
+					// 根据击中位置改变角度：击中越靠上/下，角度越大
+					float hitOffset = (ry - paddleY) / static_cast<float>(PADDLE_HALF); // -1 ~ 1
+					rvy = hitOffset * 2.0f;
+					redScore++;
+					hits++;
+					// 加速
+					if (hits % 3 == 0 && rspeed < 16)
+						redBall.setSpeed(redBall.getSpeed() + 1);
+				}
+			}
+
+			// 红球出界（右侧无挡板拦截）
+			if (rx >= WND_W)
+			{
+				state = GAMEOVER;
+			}
+
+			// 更新红球位置
+			redBall.normalize();
+			rx += rvx * rspeed;
+			ry += rvy * rspeed;
+			redBall.setx(rx);
+			redBall.sety(ry);
+			redBall.setrotationx(rvx);
+			redBall.setrotationy(rvy);
+
+			// ===== 绿球逻辑（垂直上下飞行） =====
+			float gx = greenBall.getx();
+			float gy = greenBall.gety();
+			float gvx = greenBall.getrotationx();
+			float gvy = greenBall.getrotationy();
+			float gspeed#include "gl.h"
+#define double float
+
+using namespace std;
+
+const int WND_W = 800;
+const int WND_H = 600;
+const int PADDLE_HALF = 50;
+const int WALL_PAD = 10;
+
+enum GameState { MENU, PLAYING, PAUSED, GAMEOVER };
+
+int main()
+{
+	srand(static_cast<unsigned>(time(0)));
+	initgraph(WND_W, WND_H);
+
+R:
+	setorigin(0, WND_H);
+	setaspectratio(1, -1);
+
+	// 游戏对象
+	ball redBall;		// 水平方向球：玩家1用鼠标Y控制右侧挡板
+	ball greenBall;		// 垂直方向球：玩家2用鼠标X控制底部挡板
+	ExMessage mouse;
+	int mouseX = WND_W / 2;
+	int mouseY = WND_H / 2;
+
+	int score = 0;
+	int hiScore = 0;
+	int hits = 0;
+	GameState state = MENU;
+	bool running = true;
+
+	// 两球独立计分
+	int redScore = 0;
+	int greenScore = 0;
+
+	BeginBatchDraw();
+	while (running)
+	{
+		setbkcolor(BLACK);
+		cleardevice();
+
+		// ===== 消息处理 =====
+		while (peekmessage(&mouse, EM_MOUSE | EM_KEY))
+		{
+			// 鼠标坐标：EasyX 默认原点在左上角，y 向下
+			// 我们翻转了坐标系，所以 y 需要转换
+			mouseX = mouse.x;
+			mouseY = mouse.y;
+
+			if (mouse.message == WM_LBUTTONDOWN)
+			{
+				if (state == MENU || state == GAMEOVER)
+				{
+					// 初始化/重置游戏
+					redBall.reset(100.0f, 300.0f, 1.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f));
+					greenBall.reset(400.0f, 500.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f),
+						-1.0f);
+					redBall.setSpeed(6);
+					greenBall.setSpeed(6);
+					score = 0;
+					hits = 0;
+					redScore = 0;
+					greenScore = 0;
+					state = PLAYING;
+				}
+				else if (state == PLAYING)
+				{
+					state = PAUSED;
+				}
+				else if (state == PAUSED)
+				{
+					state = PLAYING;
+				}
+			}
+			else if (mouse.message == WM_RBUTTONDOWN)
+			{
+				if (state == PLAYING || state == PAUSED || state == MENU || state == GAMEOVER)
+				{
+					running = false;
+					break;
+				}
+			}
+			else if (mouse.message == WM_KEYDOWN)
+			{
+				if (mouse.vkcode == VK_ESCAPE)
+				{
+					running = false;
+					break;
+				}
+				else if (mouse.vkcode == VK_SPACE)
+				{
+					if (state == PLAYING) state = PAUSED;
+					else if (state == PAUSED) state = PLAYING;
+				}
+			}
+		}
+		if (!running) break;
+
+		// ===== 游戏逻辑 =====
+		if (state == PLAYING)
+		{
+			// 挡板的"显示"y 值在翻转坐标系中 = WND_H - mouseY
+			float paddleY = static_cast<float>(WND_H - mouseY);
+			float paddleX = static_cast<float>(mouseX);
+
+			// 限制鼠标挡板在合理范围
+			if (paddleY < PADDLE_HALF) paddleY = static_cast<float>(PADDLE_HALF);
+			if (paddleY > WND_H - PADDLE_HALF) paddleY = static_cast<float>(WND_H - PADDLE_HALF);
+			if (paddleX < PADDLE_HALF) paddleX = static_cast<float>(PADDLE_HALF);
+			if (paddleX > WND_W - PADDLE_HALF) paddleX = static_cast<float>(WND_W - PADDLE_HALF);
+
+			// ===== 红球逻辑（水平左右飞行） =====
+			float rx = redBall.getx();
+			float ry = redBall.gety();
+			float rvx = redBall.getrotationx();
+			float rvy = redBall.getrotationy();
+			float rspeed = static_cast<float>(redBall.getSpeed());
+			int rr = redBall.r;
+
+			// 上/下边界反弹
+			if (ry - rr <= 0) { ry = static_cast<float>(rr); rvy = fabsf(rvy); }
+			if (ry + rr >= WND_H) { ry = static_cast<float>(WND_H - rr); rvy = -fabsf(rvy); }
+
+			// 左墙（AI/静态挡板）反弹
+			if (rx - rr <= WALL_PAD)
+			{
+				rx = static_cast<float>(WALL_PAD + rr);
+				rvx = fabsf(rvx);
+				// 随机偏移 y 方向
+				rvy += -1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f);
+			}
+
+			// 右侧玩家挡板碰撞（在翻转坐标系中挡板 y = paddleY）
+			if (rx + rr >= WND_W - WALL_PAD && rvx > 0)
+			{
+				if (fabsf(ry - paddleY) <= static_cast<float>(PADDLE_HALF))
+				{
+					rx = static_cast<float>(WND_W - WALL_PAD - rr);
+					rvx = -fabsf(rvx);
+					// 根据击中位置改变角度：击中越靠上/下，角度越大
+					float hitOffset = (ry - paddleY) / static_cast<float>(PADDLE_HALF); // -1 ~ 1
+					rvy = hitOffset * 2.0f;
+					redScore++;
+					hits++;
+					// 加速
+					if (hits % 3 == 0 && rspeed < 16)
+						redBall.setSpeed(redBall.getSpeed() + 1);
+				}
+			}
+
+			// 红球出界（右侧无挡板拦截）
+			if (rx >= WND_W)
+			{
+				state = GAMEOVER;
+			}
+
+			// 更新红球位置
+			redBall.normalize();
+			rx += rvx * rspeed;
+			ry += rvy * rspeed;
+			redBall.setx(rx);
+			redBall.sety(ry);
+			redBall.setrotationx(rvx);
+			redBall.setrotationy(rvy);
+
+			// ===== 绿球逻辑（垂直上下飞行） =====
+			float gx = greenBall.getx();
+			float gy = greenBall.gety();
+			float gvx = greenBall.getrotationx();
+			float gvy = greenBall.getrotationy();
+			float gspeed = static_cast<float>(greenBall.getSpeed());
+			int gr = greenBall.r;
+
+#include "gl.h"
+#define double float
+
+using namespace std;
+
+const int WND_W = 800;
+const int WND_H = 600;
+const int PADDLE_HALF = 50;
+const int WALL_PAD = 10;
+
+enum GameState { MENU, PLAYING, PAUSED, GAMEOVER };
+
+int main()
+{
+	srand(static_cast<unsigned>(time(0)));
+	initgraph(WND_W, WND_H);
+
+R:
+	setorigin(0, WND_H);
+	setaspectratio(1, -1);
+
+	// 游戏对象
+	ball redBall;		// 水平方向球：玩家1用鼠标Y控制右侧挡板
+	ball greenBall;		// 垂直方向球：玩家2用鼠标X控制底部挡板
+	ExMessage mouse;
+	int mouseX = WND_W / 2;
+	int mouseY = WND_H / 2;
+
+	int score = 0;
+	int hiScore = 0;
+	int hits = 0;
+	GameState state = MENU;
+	bool running = true;
+
+	// 两球独立计分
+	int redScore = 0;
+	int greenScore = 0;
+
+	BeginBatchDraw();
+	while (running)
+	{
+		setbkcolor(BLACK);
+		cleardevice();
+
+		// ===== 消息处理 =====
+		while (peekmessage(&mouse, EM_MOUSE | EM_KEY))
+		{
+			// 鼠标坐标：EasyX 默认原点在左上角，y 向下
+			// 我们翻转了坐标系，所以 y 需要转换
+			mouseX = mouse.x;
+			mouseY = mouse.y;
+
+			if (mouse.message == WM_LBUTTONDOWN)
+			{
+				if (state == MENU || state == GAMEOVER)
+				{
+					// 初始化/重置游戏
+					redBall.reset(100.0f, 300.0f, 1.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f));
+					greenBall.reset(400.0f, 500.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f),
+						-1.0f);
+					redBall.setSpeed(6);
+					greenBall.setSpeed(6);
+					score = 0;
+					hits = 0;
+					redScore = 0;
+					greenScore = 0;
+					state = PLAYING;
+				}
+				else if (state == PLAYING)
+				{
+					state = PAUSED;
+				}
+				else if (state == PAUSED)
+				{
+					state = PLAYING;
+				}
+			}
+			else if (mouse.message == WM_RBUTTONDOWN)
+			{
+				if (state == PLAYING || state == PAUSED || state == MENU || state == GAMEOVER)
+				{
+					running = false;
+					break;
+				}
+			}
+			else if (mouse.message == WM_KEYDOWN)
+			{
+				if (mouse.vkcode == VK_ESCAPE)
+				{
+					running = false;
+					break;
+				}
+				else if (mouse.vkcode == VK_SPACE)
+				{
+					if (state == PLAYING) state = PAUSED;
+					else if (state == PAUSED) state = PLAYING;
+				}
+			}
+		}
+		if (!running) break;
+
+		// ===== 游戏逻辑 =====
+		if (state == PLAYING)
+		{
+			// 挡板的"显示"y 值在翻转坐标系中 = WND_H - mouseY
+			float paddleY = static_cast<float>(WND_H - mouseY);
+			float paddleX = static_cast<float>(mouseX);
+
+			// 限制鼠标挡板在合理范围
+			if (paddleY < PADDLE_HALF) paddleY = static_cast<float>(PADDLE_HALF);
+			if (paddleY > WND_H - PADDLE_HALF) paddleY = static_cast<float>(WND_H - PADDLE_HALF);
+			if (paddleX < PADDLE_HALF) paddleX = static_cast<float>(PADDLE_HALF);
+			if (paddleX > WND_W - PADDLE_HALF) paddleX = static_cast<float>(WND_W - PADDLE_HALF);
+
+			// ===== 红球逻辑（水平左右飞行） =====
+			float rx = redBall.getx();
+			float ry = redBall.gety();
+			float rvx = redBall.getrotationx();
+			float rvy = redBall.getrotationy();
+			float rspeed = static_cast<float>(redBall.getSpeed());
+			int rr = redBall.r;
+
+			// 上/下边界反弹
+			if (ry - rr <= 0) { ry = static_cast<float>(rr); rvy = fabsf(rvy); }
+			if (ry + rr >= WND_H) { ry = static_cast<float>(WND_H - rr); rvy = -fabsf(rvy); }
+
+			// 左墙（AI/静态挡板）反弹
+			if (rx - rr <= WALL_PAD)
+			{
+				rx = static_cast<float>(WALL_PAD + rr);
+				rvx = fabsf(rvx);
+				// 随机偏移 y 方向
+				rvy += -1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f);
+			}
+
+			// 右侧玩家挡板碰撞（在翻转坐标系中挡板 y = paddleY）
+			if (rx + rr >= WND_W - WALL_PAD && rvx > 0)
+			{
+				if (fabsf(ry - paddleY) <= static_cast<float>(PADDLE_HALF))
+				{
+					rx = static_cast<float>(WND_W - WALL_PAD - rr);
+					rvx = -fabsf(rvx);
+					// 根据击中位置改变角度：击中越靠上/下，角度越大
+					float hitOffset = (ry - paddleY) / static_cast<float>(PADDLE_HALF); // -1 ~ 1
+					rvy = hitOffset * 2.0f;
+					redScore++;
+					hits++;
+					// 加速
+					if (hits % 3 == 0 && rspeed < 16)
+						redBall.setSpeed(redBall.getSpeed() + 1);
+				}
+			}
+
+			// 红球出界（右侧无挡板拦截）
+			if (rx >= WND_W)
+			{
+				state = GAMEOVER;
+			}
+
+			// 更新红球位置
+			redBall.normalize();
+			rx += rvx * rspeed;
+			ry += rvy * rspeed;
+			redBall.setx(rx);
+			redBall.sety(ry);
+			redBall.setrotationx(rvx);
+			redBall.setrotationy(rvy);
+
+			// ===== 绿球逻辑（垂直上下飞行） =====
+			float gx = greenBall.getx();
+			float gy = greenBall.gety();
+			float gvx = greenBall.getrotationx();
+			float gvy = greenBall.getrotationy();
+			float gspeed = static_cast<float>(greenBall.getSpeed());
+			int gr = greenBall.r;
+
+			// 左/右边界反弹
+			if (gx - gr <= 0)#include "gl.h"
+#define double float
+
+using namespace std;
+
+const int WND_W = 800;
+const int WND_H = 600;
+const int PADDLE_HALF = 50;
+const int WALL_PAD = 10;
+
+enum GameState { MENU, PLAYING, PAUSED, GAMEOVER };
+
+int main()
+{
+	srand(static_cast<unsigned>(time(0)));
+	initgraph(WND_W, WND_H);
+
+R:
+	setorigin(0, WND_H);
+	setaspectratio(1, -1);
+
+	// 游戏对象
+	ball redBall;		// 水平方向球：玩家1用鼠标Y控制右侧挡板
+	ball greenBall;		// 垂直方向球：玩家2用鼠标X控制底部挡板
+	ExMessage mouse;
+	int mouseX = WND_W / 2;
+	int mouseY = WND_H / 2;
+
+	int score = 0;
+	int hiScore = 0;
+	int hits = 0;
+	GameState state = MENU;
+	bool running = true;
+
+	// 两球独立计分
+	int redScore = 0;
+	int greenScore = 0;
+
+	BeginBatchDraw();
+	while (running)
+	{
+		setbkcolor(BLACK);
+		cleardevice();
+
+		// ===== 消息处理 =====
+		while (peekmessage(&mouse, EM_MOUSE | EM_KEY))
+		{
+			// 鼠标坐标：EasyX 默认原点在左上角，y 向下
+			// 我们翻转了坐标系，所以 y 需要转换
+			mouseX = mouse.x;
+			mouseY = mouse.y;
+
+			if (mouse.message == WM_LBUTTONDOWN)
+			{
+				if (state == MENU || state == GAMEOVER)
+				{
+					// 初始化/重置游戏
+					redBall.reset(100.0f, 300.0f, 1.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f));
+					greenBall.reset(400.0f, 500.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f),
+						-1.0f);
+					redBall.setSpeed(6);
+					greenBall.setSpeed(6);
+					score = 0;
+					hits = 0;
+					redScore = 0;
+					greenScore = 0;
+					state = PLAYING;
+				}
+				else if (state == PLAYING)
+				{
+					state = PAUSED;
+				}
+				else if (state == PAUSED)
+				{
+					state = PLAYING;
+				}
+			}
+			else if (mouse.message == WM_RBUTTONDOWN)
+			{
+				if (state == PLAYING || state == PAUSED || state == MENU || state == GAMEOVER)
+				{
+					running = false;
+					break;
+				}
+			}
+			else if (mouse.message == WM_KEYDOWN)
+			{
+				if (mouse.vkcode == VK_ESCAPE)
+				{
+					running = false;
+					break;
+				}
+				else if (mouse.vkcode == VK_SPACE)
+				{
+					if (state == PLAYING) state = PAUSED;
+					else if (state == PAUSED) state = PLAYING;
+				}
+			}
+		}
+		if (!running) break;
+
+		// ===== 游戏逻辑 =====
+		if (state == PLAYING)
+		{
+			// 挡板的"显示"y 值在翻转坐标系中 = WND_H - mouseY
+			float paddleY = static_cast<float>(WND_H - mouseY);
+			float paddleX = static_cast<float>(mouseX);
+
+			// 限制鼠标挡板在合理范围
+			if (paddleY < PADDLE_HALF) paddleY = static_cast<float>(PADDLE_HALF);
+			if (paddleY > WND_H - PADDLE_HALF) paddleY = static_cast<float>(WND_H - PADDLE_HALF);
+			if (paddleX < PADDLE_HALF) paddleX = static_cast<float>(PADDLE_HALF);
+			if (paddleX > WND_W - PADDLE_HALF) paddleX = static_cast<float>(WND_W - PADDLE_HALF);
+
+			// ===== 红球逻辑（水平左右飞行） =====
+			float rx = redBall.getx();
+			float ry = redBall.gety();
+			float rvx = redBall.getrotationx();
+			float rvy = redBall.getrotationy();
+			float rspeed = static_cast<float>(redBall.getSpeed());
+			int rr = redBall.r;
+
+			// 上/下边界反弹
+			if (ry - rr <= 0) { ry = static_cast<float>(rr); rvy = fabsf(rvy); }
+			if (ry + rr >= WND_H) { ry = static_cast<float>(WND_H - rr); rvy = -fabsf(rvy); }
+
+			// 左墙（AI/静态挡板）反弹
+			if (rx - rr <= WALL_PAD)
+			{
+				rx = static_cast<float>(WALL_PAD + rr);
+				rvx = fabsf(rvx);
+				// 随机偏移 y 方向
+				rvy += -1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f);
+			}
+
+			// 右侧玩家挡板碰撞（在翻转坐标系中挡板 y = paddleY）
+			if (rx + rr >= WND_W - WALL_PAD && rvx > 0)
+			{
+				if (fabsf(ry - paddleY) <= static_cast<float>(PADDLE_HALF))
+				{
+					rx = static_cast<float>(WND_W - WALL_PAD - rr);
+					rvx = -fabsf(rvx);
+					// 根据击中位置改变角度：击中越靠上/下，角度越大
+					float hitOffset = (ry - paddleY) / static_cast<float>(PADDLE_HALF); // -1 ~ 1
+					rvy = hitOffset * 2.0f;
+					redScore++;
+					hits++;
+					// 加速
+					if (hits % 3 == 0 && rspeed < 16)
+						redBall.setSpeed(redBall.getSpeed() + 1);
+				}
+			}
+
+			// 红球出界（右侧无挡板拦截）
+			if (rx >= WND_W)
+			{
+				state = GAMEOVER;
+			}
+
+			// 更新红球位置
+			redBall.normalize();
+			rx += rvx * rspeed;
+			ry += rvy * rspeed;
+			redBall.setx(rx);
+			redBall.sety(ry);
+			redBall.setrotationx(rvx);
+			redBall.setrotationy(rvy);
+
+			// ===== 绿球逻辑（垂直上下飞行） =====
+			float gx = greenBall.getx();
+			float gy = greenBall.gety();
+			float gvx = greenBall.getrotationx();
+			float gvy = greenBall.getrotationy();
+			float gspeed = static_cast<float>(greenBall.getSpeed());
+			int gr = greenBall.r;
+
+			// 左/右边界反弹
+			if (gx - gr <= 0) { gx = static_cast<float>(gr); gvx = fabsf(gvx); }#include "gl.h"
+#define double float
+
+using namespace std;
+
+const int WND_W = 800;
+const int WND_H = 600;
+const int PADDLE_HALF = 50;
+const int WALL_PAD = 10;
+
+enum GameState { MENU, PLAYING, PAUSED, GAMEOVER };
+
+int main()
+{
+	srand(static_cast<unsigned>(time(0)));
+	initgraph(WND_W, WND_H);
+
+R:
+	setorigin(0, WND_H);
+	setaspectratio(1, -1);
+
+	// 游戏对象
+	ball redBall;		// 水平方向球：玩家1用鼠标Y控制右侧挡板
+	ball greenBall;		// 垂直方向球：玩家2用鼠标X控制底部挡板
+	ExMessage mouse;
+	int mouseX = WND_W / 2;
+	int mouseY = WND_H / 2;
+
+	int score = 0;
+	int hiScore = 0;
+	int hits = 0;
+	GameState state = MENU;
+	bool running = true;
+
+	// 两球独立计分
+	int redScore = 0;
+	int greenScore = 0;
+
+	BeginBatchDraw();
+	while (running)
+	{
+		setbkcolor(BLACK);
+		cleardevice();
+
+		// ===== 消息处理 =====
+		while (peekmessage(&mouse, EM_MOUSE | EM_KEY))
+		{
+			// 鼠标坐标：EasyX 默认原点在左上角，y 向下
+			// 我们翻转了坐标系，所以 y 需要转换
+			mouseX = mouse.x;
+			mouseY = mouse.y;
+
+			if (mouse.message == WM_LBUTTONDOWN)
+			{
+				if (state == MENU || state == GAMEOVER)
+				{
+					// 初始化/重置游戏
+					redBall.reset(100.0f, 300.0f, 1.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f));
+					greenBall.reset(400.0f, 500.0f,
+						-1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f),
+						-1.0f);
+					redBall.setSpeed(6);
+					greenBall.setSpeed(6);
+					score = 0;
+					hits = 0;
+					redScore = 0;
+					greenScore = 0;
+					state = PLAYING;
+				}
+				else if (state == PLAYING)
+				{
+					state = PAUSED;
+				}
+				else if (state == PAUSED)
+				{
+					state = PLAYING;
+				}
+			}
+			else if (mouse.message == WM_RBUTTONDOWN)
+			{
+				if (state == PLAYING || state == PAUSED || state == MENU || state == GAMEOVER)
+				{
+					running = false;
+					break;
+				}
+			}
+			else if (mouse.message == WM_KEYDOWN)
+			{
+				if (mouse.vkcode == VK_ESCAPE)
+				{
+					running = false;
+					break;
+				}
+				else if (mouse.vkcode == VK_SPACE)
+				{
+					if (state == PLAYING) state = PAUSED;
+					else if (state == PAUSED) state = PLAYING;
+				}
+			}
+		}
+		if (!running) break;
+
+		// ===== 游戏逻辑 =====
+		if (state == PLAYING)
+		{
+			// 挡板的"显示"y 值在翻转坐标系中 = WND_H - mouseY
+			float paddleY = static_cast<float>(WND_H - mouseY);
+			float paddleX = static_cast<float>(mouseX);
+
+			// 限制鼠标挡板在合理范围
+			if (paddleY < PADDLE_HALF) paddleY = static_cast<float>(PADDLE_HALF);
+			if (paddleY > WND_H - PADDLE_HALF) paddleY = static_cast<float>(WND_H - PADDLE_HALF);
+			if (paddleX < PADDLE_HALF) paddleX = static_cast<float>(PADDLE_HALF);
+			if (paddleX > WND_W - PADDLE_HALF) paddleX = static_cast<float>(WND_W - PADDLE_HALF);
+
+			// ===== 红球逻辑（水平左右飞行） =====
+			float rx = redBall.getx();
+			float ry = redBall.gety();
+			float rvx = redBall.getrotationx();
+			float rvy = redBall.getrotationy();
+			float rspeed = static_cast<float>(redBall.getSpeed());
+			int rr = redBall.r;
+
+			// 上/下边界反弹
+			if (ry - rr <= 0) { ry = static_cast<float>(rr); rvy = fabsf(rvy); }
+			if (ry + rr >= WND_H) { ry = static_cast<float>(WND_H - rr); rvy = -fabsf(rvy); }
+
+			// 左墙（AI/静态挡板）反弹
+			if (rx - rr <= WALL_PAD)
+			{
+				rx = static_cast<float>(WALL_PAD + rr);
+				rvx = fabsf(rvx);
+				// 随机偏移 y 方向
+				rvy += -1.0f + static_cast<float>(rand()) / static_cast<float>(RAND_MAX / 2.0f);
+			}
+
+			// 右侧玩家挡板碰撞（在翻转坐标系中挡板 y = paddleY）
+			if (rx + rr >= WND_W - WALL_PAD && rvx > 0)
+			{
+				if (fabsf(ry - paddleY) <= static_cast<float>(PADDLE_HALF))
+				{
+					rx = static_cast<float>(WND_W - WALL_PAD - rr);
+					rvx = -fabsf(rvx);
+					// 根据击中位置改变角度：击中越靠上/下，角度越大
+					float hitOffset = (ry - paddleY) / static_cast<float>(PADDLE_HALF); // -1 ~ 1
+					rvy = hitOffset * 2.0f;
+					redScore++;
+					hits++;
+					// 加速
+					if (hits % 3 == 0 && rspeed < 16)
+						redBall.setSpeed(redBall.getSpeed() + 1);
+				}
+			}
+
+			// 红球出界（右侧无挡板拦截）
+			if (rx >= WND_W)
+			{
+				state = GAMEOVER;
+			}
+
+			// 更新红球位置
+			redBall.normalize();
+			rx += rvx * rspeed;
+			ry += rvy * rspeed;
+			redBall.setx(rx);
+			redBall.sety(ry);
+			redBall.setrotationx(rvx);
+			redBall.setrotationy(rvy);
+
+			// ===== 绿球逻辑（垂直上下飞行） =====
+			float gx = greenBall.getx();
+			float gy = greenBall.gety();
+			float gvx = greenBall.getrotationx();
+			float gvy = greenBall.getrotationy();
+			float gspeed = static_cast<float>(greenBall.getSpeed());
+			int gr = greenBall.r;
+
+			// 左/右边界反弹
+			if (gx - gr <= 0) { gx = static_cast<float>(gr); gvx = fabsf(gvx); }
+			if (gx + gr >= WND_W) { gx = static_cast<float>(
