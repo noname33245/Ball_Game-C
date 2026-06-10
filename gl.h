@@ -1,70 +1,70 @@
 constexpr auto PI = 3.1415926535897932384626;
-#define ´´½¨´°¿Ú initgraph			//ĞèÒªeasyx.h
-#define ¹Ø±Õ´°¿Ú closegraph			//ĞèÒªeasyx.h
-#define ÉèÖÃÔ­µã setorigin			//ĞèÒªeasyx.h
-#define ÉèÖÃÖáÀ­Éì setaspectratio	//ĞèÒªeasyx.h
-#define ÉèÖÃÏßÌõÑÕÉ« setlinecolor	//ĞèÒªeasyx.h
-#define ÉèÖÃ±³¾°ÑÕÉ« setbkcolor		//ĞèÒªeasyx.h
-#define ÉèÖÃÌî³äÑÕÉ« setfillcolor	//ĞèÒªeasyx.h
-#define Ë¢ĞÂ´°¿Ú cleardevice		//ĞèÒªeasyx.h
-#define »­µã putpixel				//ĞèÒªeasyx.h
-#define »­Ô² circle					//ĞèÒªeasyx.h
-#define Ìî³äÔ² fillcircle			//ĞèÒªeasyx.h	/*fill´øÏß£¬solid²»´øÏß*/
-#define »­Ïß line					//ĞèÒªeasyx.h
-#define »­¾ØĞÎ rectangle			//ĞèÒªeasyx.h
-#define Ìî³ä¾ØĞÎ fillrectangle		//ĞèÒªeasyx.h	/*fill´øÏß£¬solid²»´øÏß*/
-#define »­ÍÖÔ² ellipse				//ĞèÒªeasyx.h
-#define Ìî³äÍÖÔ² fillellipse		//ĞèÒªeasyx.h	/*fill´øÏß£¬solid²»´øÏß*/
-#define »­Ô²½Ç¾ØĞÎ roundrect		//ĞèÒªeasyx.h
-#define Ìî³äÔ²½Ç¾ØĞÎ fillroundrect	//ĞèÒªeasyx.h	/*fill´øÏß£¬solid²»´øÏß*/
-#define »­ÉÈĞÎ pie					//ĞèÒªeasyx.h
-#define »­»¡Ïß arc					//ĞèÒªeasyx.h
-#define »­¶à±ßĞÎ polygon			//ĞèÒªeasyx.h	/*fill´øÏß£¬solid²»´øÏß*/
-#define Ìî³ä¶à±ßĞÎ fillpolygon		//ĞèÒªeasyx.h
-#define »­¶à¶ÎÏß polyline			//ĞèÒªeasyx.h
-#define ¼ÓÔØÍ¼Æ¬ loadimage			//ĞèÒªeasyx.h
-#define ÏÔÊ¾Í¼Æ¬ putimage			//ĞèÒªeasyx.h
-#define Êä³öÎÄ×Ö outtextxy			//ĞèÒªeasyx.h
+#define åˆ›å»ºçª—å£ initgraph			//éœ€è¦easyx.h
+#define å…³é—­çª—å£ closegraph			//éœ€è¦easyx.h
+#define è®¾ç½®åŸç‚¹ setorigin			//éœ€è¦easyx.h
+#define è®¾ç½®è½´æ‹‰ä¼¸ setaspectratio	//éœ€è¦easyx.h
+#define è®¾ç½®çº¿æ¡é¢œè‰² setlinecolor	//éœ€è¦easyx.h
+#define è®¾ç½®èƒŒæ™¯é¢œè‰² setbkcolor		//éœ€è¦easyx.h
+#define è®¾ç½®å¡«å……é¢œè‰² setfillcolor	//éœ€è¦easyx.h
+#define åˆ·æ–°çª—å£ cleardevice		//éœ€è¦easyx.h
+#define ç”»ç‚¹ putpixel				//éœ€è¦easyx.h
+#define ç”»åœ† circle					//éœ€è¦easyx.h
+#define å¡«å……åœ† fillcircle			//éœ€è¦easyx.h	/*fillå¸¦çº¿ï¼Œsolidä¸å¸¦çº¿*/
+#define ç”»çº¿ line					//éœ€è¦easyx.h
+#define ç”»çŸ©å½¢ rectangle			//éœ€è¦easyx.h
+#define å¡«å……çŸ©å½¢ fillrectangle		//éœ€è¦easyx.h	/*fillå¸¦çº¿ï¼Œsolidä¸å¸¦çº¿*/
+#define ç”»æ¤­åœ† ellipse				//éœ€è¦easyx.h
+#define å¡«å……æ¤­åœ† fillellipse		//éœ€è¦easyx.h	/*fillå¸¦çº¿ï¼Œsolidä¸å¸¦çº¿*/
+#define ç”»åœ†è§’çŸ©å½¢ roundrect		//éœ€è¦easyx.h
+#define å¡«å……åœ†è§’çŸ©å½¢ fillroundrect	//éœ€è¦easyx.h	/*fillå¸¦çº¿ï¼Œsolidä¸å¸¦çº¿*/
+#define ç”»æ‰‡å½¢ pie					//éœ€è¦easyx.h
+#define ç”»å¼§çº¿ arc					//éœ€è¦easyx.h
+#define ç”»å¤šè¾¹å½¢ polygon			//éœ€è¦easyx.h	/*fillå¸¦çº¿ï¼Œsolidä¸å¸¦çº¿*/
+#define å¡«å……å¤šè¾¹å½¢ fillpolygon		//éœ€è¦easyx.h
+#define ç”»å¤šæ®µçº¿ polyline			//éœ€è¦easyx.h
+#define åŠ è½½å›¾ç‰‡ loadimage			//éœ€è¦easyx.h
+#define æ˜¾ç¤ºå›¾ç‰‡ putimage			//éœ€è¦easyx.h
+#define è¾“å‡ºæ–‡å­— outtextxy			//éœ€è¦easyx.h
 //outtextxy(TEXT("hello"));
-#define ÎÄ×Ö¸ñÊ½ settextstyle		//ĞèÒªeasyx.h
-#define ÎÄ×ÖÑÕÉ« settextcolor		//ĞèÒªeasyx.h
+#define æ–‡å­—æ ¼å¼ settextstyle		//éœ€è¦easyx.h
+#define æ–‡å­—é¢œè‰² settextcolor		//éœ€è¦easyx.h
 //settextcolor(RGB(0,0,0))||settextcolor(WHITE)
-#define ÊäÈë cin					//ĞèÒª<iostream>
-#define Êä³ö cout					//ĞèÒª<iostream>
-#define »»ĞĞ endl					//ĞèÒª<iostream>
-#define Ö÷Òª main
-#define ×Ö·û´® string
-#define Èç¹û if
-#define Ñ­»· for
-#define ÕûÊı int
-#define ¸¡µã double
-#define »ñÈ¡ÊäÈë getchar
-#define Êä³ö×Ö·û putchar
-#define Ëæ»úÊı rand()
-#define ×ö do
-#define µ± while
-#define Ìø×ª goto
-#define ²¼¶û bool
-#define ×Ö·û char
-#define Ñ¡Ôñ switch
-#define ÊÂ¼ş case
-#define Ä¬ÈÏ default
-#define ÉùÃ÷ void
-#define Àà class
-#define Ë½ÓĞ private
-#define ¹«ÓĞ public
-#define ±£»¤ protected
-#define ´Ë this
-#define ½á¹¹ struct
-#define ÃüÃû typedef
-#define ·µ»Ø return
-#define Ê¹ÓÃÃüÃû¿Õ¼ä using namespace 
-#define ±ê×¼±êÊ¶·û std
-#define ¾²Ì¬ static
-#define Ö»¶Á const
-#define ¿ªÆôË«ÖØ»º³å BeginBatchDraw
-#define ÏÔÊ¾Ö¡»­Ãæ FlushBatchDraw
-#define ½áÊøË«ÖØ»º³å EndBatchDraw
+#define è¾“å…¥ cin					//éœ€è¦<iostream>
+#define è¾“å‡º cout					//éœ€è¦<iostream>
+#define æ¢è¡Œ endl					//éœ€è¦<iostream>
+#define ä¸»è¦ main
+#define å­—ç¬¦ä¸² string
+#define å¦‚æœ if
+#define å¾ªç¯ for
+#define æ•´æ•° int
+#define æµ®ç‚¹ double
+#define è·å–è¾“å…¥ getchar
+#define è¾“å‡ºå­—ç¬¦ putchar
+#define éšæœºæ•° rand()
+#define åš do
+#define å½“ while
+#define è·³è½¬ goto
+#define å¸ƒå°” bool
+#define å­—ç¬¦ char
+#define é€‰æ‹© switch
+#define äº‹ä»¶ case
+#define é»˜è®¤ default
+#define å£°æ˜ void
+#define ç±» class
+#define ç§æœ‰ private
+#define å…¬æœ‰ public
+#define ä¿æŠ¤ protected
+#define æ­¤ this
+#define ç»“æ„ struct
+#define å‘½å typedef
+#define è¿”å› return
+#define ä½¿ç”¨å‘½åç©ºé—´ using namespace 
+#define æ ‡å‡†æ ‡è¯†ç¬¦ std
+#define é™æ€ static
+#define åªè¯» const
+#define å¼€å¯åŒé‡ç¼“å†² BeginBatchDraw
+#define æ˜¾ç¤ºå¸§ç”»é¢ FlushBatchDraw
+#define ç»“æŸåŒé‡ç¼“å†² EndBatchDraw
 #define VK_W 0x57
 #define VK_S 0x53
 #define VK_D 0x44
@@ -83,7 +83,7 @@ constexpr auto PI = 3.1415926535897932384626;
 using namespace std;
 
 
-//¼ÆÊ±Æ÷
+//è®¡æ—¶å™¨
 int timer(int duration, int id)
 {
 	static int starttime[10];
@@ -96,29 +96,33 @@ int timer(int duration, int id)
 	return 0;
 }
 
-//Ğ¡ÇòÀà
+//å°çƒç±»
 class ball
 {
 public:
 	ball();
 	~ball();
-	int getx();
-	int gety();
+	float getx();
+	float gety();
 	float getrotationx();
 	float getrotationy();
-	void setx(int x);
-	void sety(int y);
+	int getSpeed();
+	void setx(float x);
+	void sety(float y);
 	void setrotationx(float rotationx);
 	void setrotationy(float rotationy);
+	void setSpeed(int s);
+	void reset(float cx, float cy, float dx, float dy);
+	void normalize();
 	int r, speed;
 
 private:
-	int x, y;
+	float x, y;
 	float rotationx, rotationy;
-
+	float baseSpeed;
 };
 
-//ÏßÀà
+//çº¿ç±»
 class line
 {
 public:
@@ -132,25 +136,25 @@ private:
 	float x, y;
 }botline, myline;
 
-//ÇòÀàº¯Êı¶¨Òå
+//çƒç±»å‡½æ•°å®šä¹‰
 ball::ball()
 {
-	x = 400;
-	y = 300;
-	rotationx = -1;
-	rotationy = 0;
+	x = 400.0f;
+	y = 300.0f;
+	rotationx = -1.0f;
+	rotationy = 0.0f;
 	r = 10;
 	speed = 8;
+	baseSpeed = 8.0f;
 }
 ball::~ball()
 {
-	speed = r = x = y = rotationx = rotationy = NULL;
 }
-int ball::getx()
+float ball::getx()
 {
 	return x;
 }
-int ball::gety()
+float ball::gety()
 {
 	return y;
 }
@@ -162,11 +166,15 @@ float ball::getrotationy()
 {
 	return rotationy;
 }
-void ball::setx(int x)
+int ball::getSpeed()
+{
+	return speed;
+}
+void ball::setx(float x)
 {
 	this->x = x;
 }
-void ball::sety(int y)
+void ball::sety(float y)
 {
 	this->y = y;
 }
@@ -178,15 +186,36 @@ void ball::setrotationy(float rotationy)
 {
 	this->rotationy = rotationy;
 }
+void ball::setSpeed(int s)
+{
+	speed = s;
+}
+void ball::reset(float cx, float cy, float dx, float dy)
+{
+	x = cx;
+	y = cy;
+	rotationx = dx;
+	rotationy = dy;
+	speed = static_cast<int>(baseSpeed);
+	normalize();
+}
+void ball::normalize()
+{
+	float len = sqrtf(rotationx * rotationx + rotationy * rotationy);
+	if (len > 0.0001f)
+	{
+		rotationx /= len;
+		rotationy /= len;
+	}
+}
 
-//ÏßÀàº¯Êı¶¨Òå
+//çº¿ç±»å‡½æ•°å®šä¹‰
 line::line()
 {
-	x = y = 400;
+	x = y = 400.0f;
 }
 line::~line()
 {
-	x = y = NULL;
 }
 float line::getx()
 {
@@ -203,6 +232,218 @@ void line::setx(float x)
 void line::sety(float y)
 {
 	this->y = y;
+}
+
+// ============================================================
+// ç –å—ç±»å‹æšä¸¾
+// ============================================================
+enum BrickType
+{
+	BRICK_NORMAL = 0,      // æ™®é€šç –å—ï¼šä¸€å‡»å³ç¢
+	BRICK_HARD,            // åšç¡¬ç –å—ï¼šéœ€ä¸¤æ¬¡
+	BRICK_SUPER,           // è¶…çº§ç –å—ï¼šéœ€ä¸‰æ¬¡
+	BRICK_EXPLOSIVE,       // çˆ†ç‚¸ç –å—ï¼šç¢è£‚æ—¶æ³¢åŠå››é‚»
+	BRICK_INDESTRUCTIBLE   // ä¸å¯ç ´åï¼šä»…ä½œéšœç¢
+};
+
+// ç –å—ç±»
+class Brick
+{
+public:
+	Brick();
+	Brick(float x, float y, float w, float h, BrickType t, COLORREF c);
+	~Brick();
+	bool isAlive();
+	void hit();
+	void destroy();
+	BrickType getType();
+	float getLeft();
+	float getRight();
+	float getTop();
+	float getBottom();
+	COLORREF getColor();
+	int getHits();
+	int getMaxHits();
+	int getScore();
+
+private:
+	float m_x, m_y, m_w, m_h;
+	BrickType m_type;
+	int m_hits;        // å‰©ä½™è€ä¹…
+	int m_maxHits;
+	COLORREF m_color;
+	bool m_alive;
+};
+
+Brick::Brick()
+	: m_x(0), m_y(0), m_w(0), m_h(0), m_type(BRICK_NORMAL),
+	m_hits(1), m_maxHits(1), m_color(WHITE), m_alive(false) {}
+
+Brick::Brick(float x, float y, float w, float h, BrickType t, COLORREF c)
+	: m_x(x), m_y(y), m_w(w), m_h(h), m_type(t), m_color(c), m_alive(true)
+{
+	switch (t)
+	{
+	case BRICK_NORMAL:      m_hits = 1; m_maxHits = 1; break;
+	case BRICK_HARD:        m_hits = 2; m_maxHits = 2; break;
+	case BRICK_SUPER:       m_hits = 3; m_maxHits = 3; break;
+	case BRICK_EXPLOSIVE:   m_hits = 1; m_maxHits = 1; break;
+	case BRICK_INDESTRUCTIBLE: m_hits = 999; m_maxHits = 999; break;
+	default: m_hits = 1; m_maxHits = 1;
+	}
+}
+
+Brick::~Brick() {}
+
+bool Brick::isAlive() { return m_alive; }
+
+void Brick::hit()
+{
+	if (m_type == BRICK_INDESTRUCTIBLE) return;
+	m_hits--;
+	if (m_hits <= 0) m_alive = false;
+}
+
+void Brick::destroy()
+{
+	if (m_type != BRICK_INDESTRUCTIBLE)
+	{
+		m_hits = 0;
+		m_alive = false;
+	}
+}
+
+BrickType Brick::getType() { return m_type; }
+float Brick::getLeft() { return m_x; }
+float Brick::getRight() { return m_x + m_w; }
+float Brick::getTop() { return m_y + m_h; }
+float Brick::getBottom() { return m_y; }
+COLORREF Brick::getColor() { return m_color; }
+int Brick::getHits() { return m_hits; }
+int Brick::getMaxHits() { return m_maxHits; }
+
+int Brick::getScore()
+{
+	switch (m_type)
+	{
+	case BRICK_NORMAL:    return 10;
+	case BRICK_HARD:      return 25;
+	case BRICK_SUPER:     return 50;
+	case BRICK_EXPLOSIVE: return 15;
+	default: return 0;
+	}
+}
+
+// ============================================================
+// é“å…·ç±»å‹æšä¸¾
+// ============================================================
+enum PowerUpType
+{
+	POWERUP_WIDE = 0,     // åŠ å®½æŒ¡æ¿
+	POWERUP_SLOW,         // å‡é€Ÿçƒ
+	POWERUP_LIFE,         // é¢å¤–ç”Ÿå‘½
+	POWERUP_MULTI         // å¤šçƒ
+};
+
+class PowerUp
+{
+public:
+	PowerUp(float x, float y, PowerUpType t);
+	~PowerUp();
+	void update(float dt);
+	bool isAlive();
+	void kill();
+	float getX();
+	float getY();
+	float getR();
+	PowerUpType getType();
+	COLORREF getColor();
+
+private:
+	float m_x, m_y;
+	float m_vy;
+	float m_r;
+	PowerUpType m_type;
+	COLORREF m_color;
+	bool m_alive;
+};
+
+PowerUp::PowerUp(float x, float y, PowerUpType t)
+	: m_x(x), m_y(y), m_vy(-2.0f), m_r(10.0f), m_type(t), m_alive(true)
+{
+	switch (t)
+	{
+	case POWERUP_WIDE:  m_color = RGB(0, 220, 255); break;
+	case POWERUP_SLOW:  m_color = RGB(180, 180, 255); break;
+	case POWERUP_LIFE:  m_color = RGB(255, 80, 160); break;
+	case POWERUP_MULTI: m_color = RGB(255, 220, 0); break;
+	default: m_color = WHITE;
+	}
+}
+
+PowerUp::~PowerUp() {}
+
+void PowerUp::update(float dt)
+{
+	m_y += m_vy * dt;
+	if (m_y < -20.0f) m_alive = false;
+}
+
+bool PowerUp::isAlive() { return m_alive; }
+void PowerUp::kill() { m_alive = false; }
+float PowerUp::getX() { return m_x; }
+float PowerUp::getY() { return m_y; }
+float PowerUp::getR() { return m_r; }
+PowerUpType PowerUp::getType() { return m_type; }
+COLORREF PowerUp::getColor() { return m_color; }
+
+// ============================================================
+// ç²’å­ç‰¹æ•ˆ
+// ============================================================
+class Particle
+{
+public:
+	Particle(float x, float y, float vx, float vy, COLORREF c, float life);
+	~Particle();
+	void update(float dt);
+	bool isAlive();
+	float getX();
+	float getY();
+	COLORREF getColor();
+
+private:
+	float m_x, m_y, m_vx, m_vy;
+	COLORREF m_color;
+	float m_life;
+	float m_maxLife;
+};
+
+Particle::Particle(float x, float y, float vx, float vy, COLORREF c, float life)
+	: m_x(x), m_y(y), m_vx(vx), m_vy(vy), m_color(c), m_life(life), m_maxLife(life) {}
+
+Particle::~Particle() {}
+
+void Particle::update(float dt)
+{
+	m_x += m_vx * dt;
+	m_y += m_vy * dt;
+	m_vy -= 0.15f * dt;  // è½»å¾®é‡åŠ›
+	m_life -= dt;
+}
+
+bool Particle::isAlive() { return m_life > 0; }
+float Particle::getX() { return m_x; }
+float Particle::getY() { return m_y; }
+
+COLORREF Particle::getColor()
+{
+	float alpha = max(0.0f, m_life / m_maxLife);
+	int r = GetRValue(m_color);
+	int g = GetGValue(m_color);
+	int b = GetBValue(m_color);
+	return RGB(static_cast<BYTE>(r * alpha),
+		static_cast<BYTE>(g * alpha),
+		static_cast<BYTE>(b * alpha));
 }
 
 
